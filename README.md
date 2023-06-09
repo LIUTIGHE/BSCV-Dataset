@@ -9,7 +9,7 @@
     </a>
 </p>
 
-This repo contains code for our paper subimitted to NeurIPS Datasets and Benchmarks 2023:
+This repo contains code for our paper:
 
 [Bitstream-corrupted Video Recovery: Benchmark Dataset and Method]()
 
