@@ -1,5 +1,5 @@
 # BSCV-Dataset
-
+<!-- 
 <p align="left">
     <a href=''>
       <img src='https://img.shields.io/badge/Paper-arXiv-green?style=plastic&logo=arXiv&logoColor=green' alt='Paper arXiv'>
@@ -7,13 +7,13 @@
     <a href=''>
       <img src='https://img.shields.io/badge/Paper-PDF-red?style=plastic&logo=adobeacrobatreader&logoColor=red' alt='Paper PDF'>
     </a>
-</p>
+</p> -->
 
-This repo contains code for our paper:
+<!-- This repo contains code for our paper:
 
 [Bitstream-corrupted Video Recovery: Benchmark Dataset and Method]()
 
-[Tianyi Liu](), [Kejun Wu](), [Yi Wang](), [Wenyang Liu](), [Kim-Hui Yap](), [Lap-Pui Chau]()
+[Tianyi Liu](), [Kejun Wu](), [Yi Wang](), [Wenyang Liu](), [Kim-Hui Yap](), [Lap-Pui Chau]() -->
 
 ## Dataset
 
