@@ -1,5 +1,7 @@
 # BSCV-Dataset
 Official repository of BSCV dataset introduced in paper titled "Bitstream-corrupted Video Recovery: Benchmark Dataset and Method" submitted to 37th Conference on Neural Information Processing Systems Datasets and Benchmarks Track.
+![Tesear](teaser_v6.pdf)
+
 
 ## Dataset Property
 - Multiple video resolution (240P, 480P, 720P)
