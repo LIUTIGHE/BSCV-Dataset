@@ -149,7 +149,7 @@ for f in ['test', 'train']:
 
 
 # # Gen GT and BSC_JPEG
-for a in ['_124096', '_142048', '_244096']:
+for a in ['_144096', '_124096', '_142048', '_244096']:
 
     for filename in os.listdir('train'+a+'/BSC_h264'):
         print(' ')
