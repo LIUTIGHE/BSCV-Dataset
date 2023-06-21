@@ -33,19 +33,29 @@ For dataset downloading, please check this [link](https://entuedu-my.sharepoint.
 
 ### Data Extraction
 We have seperated the dataset into training and testing set and for each branch. 
-After downloading the .tar.gz files, please firstly restore the original .tar.gz file of the 144096 branch of the training set and do data extraction and basic formatting by the following script.
+After downloading the .tar.gz files, please firstly run the following .sh file for restoring the original .tar.gz files, unzipping the archives and formatting the folders by
 ```
-.sh
-concat xxx
+$ bash format.sh
 ```
 
-After the prepration, ffmpeg encoded orignial (GT) video bitstream is provided in the _144096 branch with folder name "GT_h264" and the decoded frame sequence is provided in the folder named "JPEGImages" 
-We provide the encoded h264 bitstream of each video and its decoded frame sequence as common video dataset
+After the data preparation, ffmpeg encoded orignial (GT) video bitstream is provided in the ``_144096`` branch with folder name ``GT_h264`` and its decoded frame sequence with corruption is provided in the folder named ``GT_JPEGImages``.
+We also provide the h264 bitstreams of each video and their decoded frame sequence as commonlu used video dataset.
+Additionally, the mask sequence which is used for corruption region indication is provided in the ``masks`` folder in each branch
 
 ### Arbitrary Extension
-Our proposed parameter model for generating bitstream corruption and therefore generating corrupted videos can be used to generate additional
+The proposed parameter model for generating bitstream corruption and therefore generating corrupted videos can be used to generate additional branches. 
+You can use the provided program with your parameter combination to generate your own branches based on the GOP size 16 as our setting, by the following commands, e.g.
+```
+python corrpt_Gen.py --prob 1/16 --pos 0.4 --size 4096 
+```
 
 ## Experimental Setup
+### FFmpeg Installation
+We adopt FFmpeg as our video codec, please refer to the official guide line for your ffmpeg installation.
+
+PS: It seems the working principle is different between Linux and Windows version of Linux since we have some lost-frame error in decoding on Linux but the same bitstream is fine on Windows. So we recommend using Windows FFmpeg to repair the frame loss issue if you are generating new branches. 
+
+### Environmental Setting
 We provide all environment configurations in ``requirements.txt``.
 
 ```bash
