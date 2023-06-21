@@ -89,13 +89,13 @@ BSCV-Dataset
 ```
 
 ### Extension
-We proposed a parameter model for generating bitstream corruption and therefore causing arbitrarily corrupted videos and additional branches. 
+We proposed a parameter model for generating bitstream corruption and therefore causing arbitrarily corrupted videos, even additional branches. 
 ![Param_Model](extend_fig.png)
 You can use the provided program with your parameter combination to generate arbitrary branches based on the GOP size 16 as our setting, by the following commands, e.g.
 ```
 python corrpt_Gen.py --prob 1 --pos 0.4 --size 4096 
 ```
-Please use integer for ``prob`` and ``size``, and float for ``pos`` due to the limitation of our current simplified experimental setting. 
+Please use integer for ``prob`` and ``size``, and float for ``pos`` due to the limitation of our current experimental setting. 
 If you want to adjust the GOP size, please refer to FFmpeg's instruction to recoding the frame sequence in folder ``GT_JPEGImages`` of branch ``_144096``.
 
 ## Experimental Setup
