@@ -31,7 +31,7 @@
 ### Download
 For dataset downloading, please check this [link](https://entuedu-my.sharepoint.com/:f:/g/personal/liut0038_e_ntu_edu_sg/Egn7Xygv7UJBilL9z3nFo_4Bm5LdeoXCv-uiDo3qANsmTw?e=fMU9gZ) (Upload in progress).
 
-### Data Extraction
+### Extraction
 We have seperated the dataset into training and testing set and for each branch. 
 After downloading the .tar.gz files, please firstly run the following .sh file for restoring the original .tar.gz files, unzipping the archives and formatting the folders by
 ```
@@ -42,12 +42,13 @@ After the data preparation, ffmpeg encoded orignial (GT) video bitstream is prov
 We also provide the h264 bitstreams of each video and their decoded frame sequence as commonlu used video dataset.
 Additionally, the mask sequence which is used for corruption region indication is provided in the ``masks`` folder in each branch
 
-### Arbitrary Extension
-The proposed parameter model for generating bitstream corruption and therefore generating corrupted videos can be used to generate additional branches. 
+### Extension
+The proposed parameter model for generating bitstream corruption and therefore causing arbitrarily corrupted videos and additional branches. 
 You can use the provided program with your parameter combination to generate your own branches based on the GOP size 16 as our setting, by the following commands, e.g.
 ```
 python corrpt_Gen.py --prob 1/16 --pos 0.4 --size 4096 
 ```
+If you want to adjust the GOP size, please refer to FFmpeg's instruction to recoding the frame sequence ``GT_JPEGImages`` in branch ``_144096``.
 
 ## Experimental Setup
 ### FFmpeg Installation
