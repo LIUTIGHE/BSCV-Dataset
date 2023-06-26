@@ -8,5 +8,5 @@ for f in *.tar.gz; do tar -xvzf "$f"; done
 
 # After unzipping, rename the subfolder 'Annotations' as 'masks' in each extracted folders
 for d in */; do mv "$d/Annotations" "$d/masks"; done
-mv "./train_144096/JPEGImages" "./train_144906/GT_JPEGImages"
+mv "./train_144096/JPEGImages" "./train_144096/GT_JPEGImages"
 
