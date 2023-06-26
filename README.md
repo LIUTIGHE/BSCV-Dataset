@@ -24,42 +24,42 @@
 For each video, under various parameter setting, we provide differently corrupted videos (from left to right: ``(P, L, S) = (1/16, 0.4, 2048), (1/16, 0.4, 4096), (1/16, 0.2, 4096), and (2/16, 0.4, 4096)``, respectively).
 <table>
   <tr>
-    <td><img src="GIF/1e0c2e54f2_142048.gif" alt="GIF 1" width="200"/></td>
-    <td><img src="GIF/1e0c2e54f2_144096.gif" alt="GIF 2" width="200"/></td>
-    <td><img src="GIF/1e0c2e54f2_124096.gif" alt="GIF 3" width="200"/></td>
-    <td><img src="GIF/1e0c2e54f2_244096.gif" alt="GIF 4" width="200"/></td>
+    <td><img src="GIF/1e0c2e54f2_142048.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/1e0c2e54f2_144096.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/1e0c2e54f2_124096.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/1e0c2e54f2_244096.gif" alt="GIF 4" width="180"/></td>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="GIF/bmx-bumps_142048.gif" alt="GIF 1" width="200"/></td>
-    <td><img src="GIF/bmx-bumps_144096.gif" alt="GIF 2" width="200"/></td>
-    <td><img src="GIF/bmx-bumps_124096.gif" alt="GIF 3" width="200"/></td>
-    <td><img src="GIF/bmx-bumps_244096.gif" alt="GIF 4" width="200"/></td>
+    <td><img src="GIF/bmx-bumps_142048.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/bmx-bumps_144096.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/bmx-bumps_124096.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/bmx-bumps_244096.gif" alt="GIF 4" width="180"/></td>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="GIF/camel_142048.gif" alt="GIF 1" width="200"/></td>
-    <td><img src="GIF/camel_144096.gif" alt="GIF 2" width="200"/></td>
-    <td><img src="GIF/camel_124096.gif" alt="GIF 3" width="200"/></td>
-    <td><img src="GIF/camel_244096.gif" alt="GIF 4" width="200"/></td>
+    <td><img src="GIF/camel_142048.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/camel_144096.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/camel_124096.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/camel_244096.gif" alt="GIF 4" width="180"/></td>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="GIF/mascot_142048.gif" alt="GIF 1" width="200"/></td>
-    <td><img src="GIF/mascot_144096.gif" alt="GIF 2" width="200"/></td>
-    <td><img src="GIF/mascot_124096.gif" alt="GIF 3" width="200"/></td>
-    <td><img src="GIF/mascot_244096.gif" alt="GIF 4" width="200"/></td>
+    <td><img src="GIF/mascot_142048.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/mascot_144096.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/mascot_124096.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/mascot_244096.gif" alt="GIF 4" width="180"/></td>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="GIF/tennis_142048.gif" alt="GIF 1" width="200"/></td>
-    <td><img src="GIF/tennis_144096.gif" alt="GIF 2" width="200"/></td>
-    <td><img src="GIF/tennis_124096.gif" alt="GIF 3" width="200"/></td>
-    <td><img src="GIF/tennis_244096.gif" alt="GIF 4" width="200"/></td>
+    <td><img src="GIF/tennis_142048.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/tennis_144096.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/tennis_124096.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/tennis_244096.gif" alt="GIF 4" width="180"/></td>
   </tr>
 </table>
 
