@@ -11,7 +11,7 @@
 
 <!-- This repo contains code for our paper:
 
-[Bitstream-corrupted Video Recovery: Benchmark Dataset and Method]()
+[Bitstream-corrupted Video Recovery: A Novel Benchmark Dataset and Method]()
 
 [Tianyi Liu](), [Kejun Wu](), [Yi Wang](), [Wenyang Liu](), [Kim-Hui Yap](), [Lap-Pui Chau]() -->
 
@@ -21,7 +21,7 @@
 
 ![Tesear](teaser_v6_00.png)
 
-For each video, under various parameter setting, we provide differently corrupted videos (from left to right: ``(P, L, S) = (1/16, 0.4, 2048), (1/16, 0.4, 4096), (1/16, 0.2, 4096), and (2/16, 0.4, 4096)``, respectively).
+For each video, under various parameter setting, we provide differently corrupted videos (from left to right: ``(P, L, S) = (1/16, 0.4, 2048), (1/16, 0.4, 4096), (1/16, 0.2, 4096), and (2/16, 0.4, 4096)``, respectively. The explanation of the parameter will be explained below/in paper.).
 <table>
   <tr>
     <td><img src="GIF/1e0c2e54f2_142048.gif" alt="GIF 1" width="180"/></td>
@@ -158,7 +158,7 @@ $ pip install -r requirements.txt
 We refer the authors to [Generation](generation/README.md) and [Experiment](baselines/README.md) for details on quetsion-answer
 generation, balancing, data split, and baseline experiments. For these two functionalities, please checkout the corresponding
 sub-directory for code and instructions. -->
-
+<!-- 
 ## Citation
 If you find our paper and/or code helpful, please consider citing:
 ```
@@ -171,3 +171,4 @@ If you find our paper and/or code helpful, please consider citing:
 ```
 
 ## Acknowledgement
+-->
