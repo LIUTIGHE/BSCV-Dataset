@@ -146,18 +146,14 @@ We adopt FFmpeg as our video codec, please refer to the official guide line for 
 
 PS: It seems the working principle is different between Linux and Windows version of Linux since we have some lost-frame error in decoding on Linux but the same bitstream is fine on Windows. So we recommend using Windows FFmpeg to repair the frame loss issue if you are generating new branches. 
 
-### Environmental Setting
-We provide all environment configurations in ``requirements.txt``.
+### Environmental Setting for Evaluation
+For evaluation, we provide all environment configurations in ``requirements.txt``.
 
 ```bash
 $ conda create -n BSCVI python=3.7
 $ pip install -r requirements.txt
 ```
 
-<!-- Similar CUDA version should also be acceptable with corresponding version control for ``torch`` and ``torchvision``.
-We refer the authors to [Generation](generation/README.md) and [Experiment](baselines/README.md) for details on quetsion-answer
-generation, balancing, data split, and baseline experiments. For these two functionalities, please checkout the corresponding
-sub-directory for code and instructions. -->
 <!-- 
 ## Citation
 If you find our paper and/or code helpful, please consider citing:
