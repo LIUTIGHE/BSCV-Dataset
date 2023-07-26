@@ -22,6 +22,7 @@
 ![Tesear](teaser_v6_00.png)
 
 For each video, under various parameter setting, we provide differently corrupted videos (from left to right: ``(P, L, S) = (1/16, 0.4, 2048), (1/16, 0.4, 4096), (1/16, 0.2, 4096), and (2/16, 0.4, 4096)``, respectively. The explanation of the parameter will be explained below/in paper.).
+<!-- 
 <table>
   <tr>
     <td><img src="GIF/1e0c2e54f2_142048.gif" alt="GIF 1" width="180"/></td>
@@ -32,10 +33,27 @@ For each video, under various parameter setting, we provide differently corrupte
 </table>
 <table>
   <tr>
+    <td><img src="GIF/1e0c2e54f2_142048_rec.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/1e0c2e54f2_144096_rec.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/1e0c2e54f2_124096_rec.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/1e0c2e54f2_244096_rec.gif" alt="GIF 4" width="180"/></td>
+  </tr>
+</table>
+-->
+<table>
+  <tr>
     <td><img src="GIF/bmx-bumps_142048.gif" alt="GIF 1" width="180"/></td>
     <td><img src="GIF/bmx-bumps_144096.gif" alt="GIF 2" width="180"/></td>
     <td><img src="GIF/bmx-bumps_124096.gif" alt="GIF 3" width="180"/></td>
     <td><img src="GIF/bmx-bumps_244096.gif" alt="GIF 4" width="180"/></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td><img src="GIF/bmx-bumps_142048_rec.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/bmx-bumps_144096_rec.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/bmx-bumps_124096_rec.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/bmx-bumps_244096_rec.gif" alt="GIF 4" width="180"/></td>
   </tr>
 </table>
 <table>
@@ -48,6 +66,14 @@ For each video, under various parameter setting, we provide differently corrupte
 </table>
 <table>
   <tr>
+    <td><img src="GIF/camel_142048_rec.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/camel_144096_rec.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/camel_124096_rec.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/camel_244096_rec.gif" alt="GIF 4" width="180"/></td>
+  </tr>
+</table>
+<table>
+  <tr>
     <td><img src="GIF/mascot_142048.gif" alt="GIF 1" width="180"/></td>
     <td><img src="GIF/mascot_144096.gif" alt="GIF 2" width="180"/></td>
     <td><img src="GIF/mascot_124096.gif" alt="GIF 3" width="180"/></td>
@@ -56,10 +82,26 @@ For each video, under various parameter setting, we provide differently corrupte
 </table>
 <table>
   <tr>
+    <td><img src="GIF/mascot_142048_rec.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/mascot_144096_rec.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/mascot_124096_rec.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/mascot_244096_rec.gif" alt="GIF 4" width="180"/></td>
+  </tr>
+</table>
+<table>
+  <tr>
     <td><img src="GIF/tennis_142048.gif" alt="GIF 1" width="180"/></td>
     <td><img src="GIF/tennis_144096.gif" alt="GIF 2" width="180"/></td>
     <td><img src="GIF/tennis_124096.gif" alt="GIF 3" width="180"/></td>
     <td><img src="GIF/tennis_244096.gif" alt="GIF 4" width="180"/></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td><img src="GIF/tennis_142048_rec.gif" alt="GIF 1" width="180"/></td>
+    <td><img src="GIF/tennis_144096_rec.gif" alt="GIF 2" width="180"/></td>
+    <td><img src="GIF/tennis_124096_rec.gif" alt="GIF 3" width="180"/></td>
+    <td><img src="GIF/tennis_244096_rec.gif" alt="GIF 4" width="180"/></td>
   </tr>
 </table>
 
