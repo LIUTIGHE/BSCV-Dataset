@@ -173,8 +173,11 @@ BSCV-Dataset
 ```
 
 ### Extension
+We adopt FFmpeg as our video codec, please refer to the official guide line for your ffmpeg installation.
+
 We proposed a parameter model for generating bitstream corruption and therefore causing arbitrarily corrupted videos, even additional branches. 
 ![Param_Model](extend_fig.png)
+
 You can use the provided program with your parameter combination to generate arbitrary branches based on the GOP size 16 as our setting, by the following commands, e.g.
 ```
 python corrpt_Gen.py --prob 1 --pos 0.4 --size 4096 
@@ -182,11 +185,10 @@ python corrpt_Gen.py --prob 1 --pos 0.4 --size 4096
 Please use integer for ``prob`` and ``size``, and float for ``pos`` due to the limitation of our current experimental setting. 
 If you want to adjust the GOP size, please refer to FFmpeg's instruction to recoding the frame sequence in folder ``GT_JPEGImages`` of branch ``_144096``.
 
-## Experimental Setup
-### FFmpeg Installation
-We adopt FFmpeg as our video codec, please refer to the official guide line for your ffmpeg installation.
+PS: Based on our practical errpr we encountered in our experiments, it seems the working principle is different between Linux and Windows version of FFmpeg since we have some lost-frame error in decoding on Linux but the same bitstream is fine on Windows. So we recommend using FFmpeg on windows to deal with the lost frame issue if you are generating new branches. 
 
-PS: It seems the working principle is different between Linux and Windows version of Linux since we have some lost-frame error in decoding on Linux but the same bitstream is fine on Windows. So we recommend using Windows FFmpeg to repair the frame loss issue if you are generating new branches. 
+<!-- 
+## Experimental Setup
 
 ### Environmental Setting for Evaluation
 For evaluation, we provide all environment configurations in ``requirements.txt``.
@@ -196,7 +198,7 @@ $ conda create -n BSCVI python=3.7
 $ pip install -r requirements.txt
 ```
 
-<!-- 
+
 ## Citation
 If you find our paper and/or code helpful, please consider citing:
 ```
