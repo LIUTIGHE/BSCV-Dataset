@@ -185,7 +185,7 @@ python corrpt_Gen.py --prob 1 --pos 0.4 --size 4096
 Please use integer for ``prob`` and ``size``, and float for ``pos`` due to the limitation of our current experimental setting. 
 If you want to adjust the GOP size, please refer to FFmpeg's instruction to recoding the frame sequence in folder ``GT_JPEGImages`` of branch ``_144096``.
 
-PS: Based on our practical errpr we encountered in our experiments, it seems the working principle is different between Linux and Windows version of FFmpeg since we have some lost-frame error in decoding on Linux but the same bitstream is fine on Windows. So we recommend using FFmpeg on windows to deal with the lost frame issue if you are generating new branches. 
+PS: It seems the working principle is different between Linux and Windows version of FFmpeg since we have some practical lost-frame error in decoding on Linux but the same bitstream is fine on Windows. So we recommend using FFmpeg on windows to deal with the lost frame issue if you are generating new branches. 
 
 <!-- 
 ## Experimental Setup
