@@ -19,9 +19,9 @@
 
 ## Dataset
 
-![Tesear](teaser_v6_00.png)
+![Tesear](teaser_v9.png)
 
-For each video, under various parameter setting, we provide differently corrupted videos (from left to right: ``(P, L, S) = (1/16, 0.4, 2048), (1/16, 0.4, 4096), (1/16, 0.2, 4096), and (2/16, 0.4, 4096)``, respectively. The explanation of the parameter will be explained below/in paper.).
+For each video in YouTubeVOS&DAVIS subset, under various parameter setting, we provide differently corrupted videos (from left to right: ``(P, L, S) = (1/16, 0.4, 2048), (1/16, 0.4, 4096), (1/16, 0.2, 4096), (2/16, 0.4, 4096)``, and **additional** ``(1/16, 0.4, 8192), (1/16, 0.8, 4096), (4/16, 0.4, 4096)`` branches , respectively. The explanation of the parameter will be explained below/in paper.).
 <!-- 
 <table>
   <tr>
@@ -106,14 +106,14 @@ For each video, under various parameter setting, we provide differently corrupte
 </table>
 
 ### Property
-- Flexible video resolution setting (240P, 480P, 720P)
+- Flexible video resolution setting (480P, 720P, 1080P, 4K)
 - Realistic video degradation caused by bitstream corruption.
 - Various unpredictable error pattern in different degree.
-- With over 17K video clips and 2M frames, 50% frames have corruption.
+- With about 30K video clips and 3.5M frames, 50% frames have corruption.
 - ...
 
 ### Download
-For dataset downloading, please check this [link](https://entuedu-my.sharepoint.com/:f:/g/personal/liut0038_e_ntu_edu_sg/Egn7Xygv7UJBilL9z3nFo_4Bm5LdeoXCv-uiDo3qANsmTw?e=fMU9gZ) (About 1T).
+For dataset downloading, please check this [link](https://entuedu-my.sharepoint.com/:f:/g/personal/liut0038_e_ntu_edu_sg/Egn7Xygv7UJBilL9z3nFo_4Bm5LdeoXCv-uiDo3qANsmTw?e=fMU9gZ) (Extension for higher resolution, more parameter combination, and uploading are in progress).
 
 ### Extraction
 We have seperated the dataset into training and testing set and for each branch. 
@@ -128,7 +128,8 @@ Additionally, the mask sequence which is used for corruption region indication i
 ```
 BSCV-Dataset
 |-scripts                         # Codes for dataset construction
-|-train_144096                    # Branch_144096
+|-YouTube-VOS&DAVIS
+| |-train_144096                    # Branch_144096
 |  |-GT_h264
 |    |-##########.h264            # H.264 video bitstream with original id in YouTube-VOS dataset
 |    |-...                        # 3,471 bitstream files in total
@@ -155,21 +156,30 @@ BSCV-Dataset
 |      |-00000.png
 |      |-...
 |    |-...
-|-train_142048                    # The following branch has the same structure, without GT data only
+| |-train_142048                    # The following branch has the same structure, without GT data only
+|  |-BSC_h264
+|  |-BSC_JPEGImages
+|  |-masks       
+|  |-Diff      
+| |...
+|-YouTube-UGC-1080P
+| |-FHD
+| |-FHD_124096
+|  |-GT_h264       
+|  |-GT_JPEGImages
 |  |-BSC_h264
 |  |-BSC_JPEGImages
 |  |-masks       
 |  |-Diff
-|-train_124096
+| |...
+|-Videezy4K-4K
+| |-QHD
+|  |-GT_h264       
+|  |-GT_JPEGImages
 |  |-BSC_h264
 |  |-BSC_JPEGImages
 |  |-masks       
 |  |-Diff
-|-train_244096
-|  |-BSC_h264
-|  |-BSC_JPEGImages
-|  |-masks       
-|  |-Diff         
 ```
 
 ### Extension
