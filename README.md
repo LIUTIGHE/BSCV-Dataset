@@ -17,6 +17,16 @@
 
 (This page is under construction)
 
+
+## Update
+###  8.24
+
+1.New subset with higher resolutions in 1080P and 4K is included.
+
+2.New branches will soon be released with more significant parameter adjustments and corruption ratios.
+
+
+
 ## Dataset
 
 ![Tesear](teaser_v9.png)
@@ -116,8 +126,8 @@ For each video in YouTubeVOS&DAVIS subset, under various parameter setting, we p
 For dataset downloading, please check this [link](https://entuedu-my.sharepoint.com/:f:/g/personal/liut0038_e_ntu_edu_sg/Egn7Xygv7UJBilL9z3nFo_4Bm5LdeoXCv-uiDo3qANsmTw?e=fMU9gZ) (Extension for higher resolution, more parameter combination, and uploading are in progress).
 
 ### Extraction
-We have seperated the dataset into training and testing set and for each branch in **YouTube-VOS&DAVIS**.
-**YouTube-UGC** 1080P subset and **Videezy4K** 4K subset are currently for testing.
+We have seperated the dataset into training and testing set and for each branch in YouTube-VOS&DAVIS.
+YouTube-UGC 1080P subset and Videezy4K 4K subset (for testing).
 After downloading the ``.tar.gz`` files, please firstly restore the original ``.tar.gz`` files, unzipping the archives and formatting the folders by
 ```
 $ bash format.sh
