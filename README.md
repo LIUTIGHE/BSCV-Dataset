@@ -21,12 +21,11 @@
 ## Update
 ###  8.24
 
-1.New subset with higher resolutions in 1080P and 4K is included.
+1.New YouTube-VOS&DAVIS branches will soon be released with tougher parameter adjustments and corruption ratios.
 
-2.New branches will soon be released with tougher parameter adjustments and corruption ratios.
+2.New subset with higher resolutions in 1080P and 4K is included.
 
-3.H.265 is supported, uploading in progress due to size and network speed
-
+3.H.265 protocol is supported, uploading of mentioned subset and branches is in progress due to size and network speed.
 
 
 ## Dataset
