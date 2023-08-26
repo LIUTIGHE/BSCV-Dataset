@@ -23,7 +23,9 @@
 
 1.New subset with higher resolutions in 1080P and 4K is included.
 
-2.New branches will soon be released with more significant parameter adjustments and corruption ratios.
+2.New branches will soon be released with tougher parameter adjustments and corruption ratios.
+
+3.H.265 is supported, uploading in progress due to size and network speed
 
 
 
