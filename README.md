@@ -212,12 +212,11 @@ PS: It seems the working principle is different between Linux and Windows versio
 ## Method
 
 We propose a recovery framework based on end to end video inpainting method while leveraging the partial contents in the corrupted region, and we achieved better recovery quality compared with existing SOTA video inpainting methods.
-
 ![Method](Overview_v6.png)
 
 ![Vis](qualitative.png)
 
-
+The code for our method, experimental setup, and evluation scripts will be released soon.
 
 <!-- 
 ## Experimental Setup
