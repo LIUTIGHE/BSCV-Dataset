@@ -209,6 +209,16 @@ If you want to adjust the GOP size, please refer to FFmpeg's instruction to reco
 
 PS: It seems the working principle is different between Linux and Windows version of FFmpeg since we have some practical lost-frame error in decoding on Linux but the same bitstream is fine on Windows. So we recommend using FFmpeg on windows to deal with the lost frame issue if you are generating new branches. 
 
+## Method
+
+We propose a recovery framework based on end to end video inpainting method while leveraging the partial contents in the corrupted region, and we achieved better recovery quality compared with existing SOTA video inpainting methods.
+
+![Method](Overview_v6.png)
+
+![Vis](qualitative.png)
+
+
+
 <!-- 
 ## Experimental Setup
 
@@ -219,6 +229,7 @@ For evaluation, we provide all environment configurations in ``requirements.txt`
 $ conda create -n BSCVI python=3.7
 $ pip install -r requirements.txt
 ```
+
 
 
 ## Citation
