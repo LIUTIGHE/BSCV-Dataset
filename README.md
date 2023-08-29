@@ -214,9 +214,19 @@ PS: It seems the working principle is different between Linux and Windows versio
 We propose a recovery framework based on end to end video inpainting method while leveraging the partial contents in the corrupted region, and we achieved better recovery quality compared with existing SOTA video inpainting methods.
 ![Method](Overview_v6.png)
 
+![Eval](quantitative.png)
+
 ![Vis](qualitative.png)
 
-The code for our method, experimental setup, and evluation scripts will be released soon.
+For additional comparison with non-end-to-end methods, our preliminary evaluation result is
+| Method | PSNR $\uparrow$ | SSIM $\uparrow$ | LPIPS $\downarrow$ | VFID $\downarrow$ | Runtime |
+| ------ | ------ | ------ | ------ | ------ | ------ |
+| FGT[2] | **31.5407** | 0.8967 | 0.0486 | 0.3368 | ~1.97 |
+| ECFVI[1] | 20.8676 | 0.7692 | 0.0705 | 0.3019 | ~2.24 |
+| **BSCVR-S (Ours)** | 28.8288 | ***0.9138*** | ***0.0399*** | **0.1704** | **0.172** |
+| **BSCVR-P (Ours)** | ***29.0186*** | **0.9166** | **0.0391** | ***0.1730*** | ***0.178*** |
+
+The code for our method, experimental setup, and evaluation scripts will be released soon after packaging and checking.
 
 <!-- 
 ## Experimental Setup
