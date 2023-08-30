@@ -23,7 +23,7 @@
 
 1. We shared our proposed video recovery method and evaluation results in the [method](https://github.com/LIUTIGHE/BSCV-Dataset/edit/main/README.md#824) part.
 
-2. We provide preliminary comparison between our method and non-end-to-end video inpainting methods, the recovered video is illustrated to demonstrate our method's advantage.
+2. We additionally presented some performance comparisons in video form, which highlights the advantage of our method in recovering long-term and large area corruptions.
 
 ### 8.24
 
@@ -294,6 +294,9 @@ Performance comparisons of recovery results in video form are illustrated below,
   <img src="GIF/tennisbsctrain_BSCVI_S.gif" alt="Image 5" width="272" height="153"/>
 </p>
 
+These video form presentations well highlight the advantages of our model in recovering long-term video sequences and large-area error patterns caused by bitstream corruptions.
+
+## Experimental Setup
 
 The code for our method, experimental setup, and evaluation scripts will be released soon after packaging and checking.
 
