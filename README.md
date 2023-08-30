@@ -260,6 +260,35 @@ Recovery results in the form of video is illustrated below, from left to right i
   <img src="GIF/tennis_gt.gif" alt="Image 6" width="160" height="90"/>
 </p>
 
+
+<p align="center">
+  <img src="GIF/mascot_input.gif" alt="Image 1" width="320" height="180"/>
+  <img src="GIF/mascot_mask.gif" alt="Image 2" width="320" height="180"/>
+  <img src="GIF/mascotpretrain_FGT.gif" alt="Image 3" width="320" height="180"/>
+  <img src="GIF/mascotpretrain_ECFVI.gif" alt="Image 4" width="320" height="180"/>
+  <img src="GIF/mascotbsctrain_BSCVI_S.gif" alt="Image 5" width="320" height="180"/>
+  <img src="GIF/mascot_gt.gif" alt="Image 6" width="320" height="180"/>
+</p>
+
+<p align="center">
+  <img src="GIF/walking_input.gif" alt="Image 1" width="320" height="180"/>
+  <img src="GIF/walking_mask.gif" alt="Image 2" width="320" height="180"/>
+  <img src="GIF/walkingpretrain_FGT.gif" alt="Image 3" width="320" height="180"/>
+  <img src="GIF/walkingpretrain_ECFVI.gif" alt="Image 4" width="320" height="180"/>
+  <img src="GIF/walkingbsctrain_BSCVI_S.gif" alt="Image 5" width="320" height="180"/>
+  <img src="GIF/walking_gt.gif" alt="Image 6" width="320" height="180"/>
+</p>
+
+<p align="center">
+  <img src="GIF/tennis_input.gif" alt="Image 1" width="320" height="180"/>
+  <img src="GIF/tennis_mask.gif" alt="Image 2" width="320" height="180"/>
+  <img src="GIF/tennispretrain_FGT.gif" alt="Image 3" width="320" height="180"/>
+  <img src="GIF/tennispretrain_ECFVI.gif" alt="Image 4" width="320" height="180"/>
+  <img src="GIF/tennisbsctrain_BSCVI_S.gif" alt="Image 5" width="320" height="180"/>
+  <img src="GIF/tennis_gt.gif" alt="Image 6" width="320" height="180"/>
+</p>
+
+
 The code for our method, experimental setup, and evaluation scripts will be released soon after packaging and checking.
 
 <!-- 
