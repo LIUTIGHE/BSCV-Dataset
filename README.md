@@ -224,6 +224,8 @@ We propose a recovery framework based on end to end video inpainting method whil
 
 ![Vis](Fig/qualitative.png)
 
+---
+
 For additional comparison with non-end-to-end methods, our preliminary evaluation result is
 | Method | PSNR $\uparrow$ | SSIM $\uparrow$ | LPIPS $\downarrow$ | VFID $\downarrow$ | Runtime |
 | ------ | ------ | ------ | ------ | ------ | ------ |
@@ -231,6 +233,8 @@ For additional comparison with non-end-to-end methods, our preliminary evaluatio
 | ECFVI[1] | 20.8676 | 0.7692 | 0.0705 | 0.3019 | ~2.24 |
 | **BSCVR-S (Ours)** | 28.8288 | ***0.9138*** | ***0.0399*** | **0.1704** | **0.172** |
 | **BSCVR-P (Ours)** | ***29.0186*** | **0.9166** | **0.0391** | ***0.1730*** | ***0.178*** |
+
+---
 
 Recovery results in the form of video is illustrated below, from left to right, top to down is Corrupted Video, Mask Input, Ground Truth, FGT, ECFVI, and Our method in sequence.
 
