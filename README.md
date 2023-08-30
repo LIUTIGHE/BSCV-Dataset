@@ -20,16 +20,17 @@
 
 ## Update News
 
-**30/08/23:** 
+**Aug 30:** 
 
 We additionally presented some performance comparisons in video form, which highlights the advantage of our method in recovering long-term and large area corruptions.
 
-**29/08/23:** 
+**Aug 29:** 
 
 We shared our proposed video recovery method and evaluation results in the [method](https://github.com/LIUTIGHE/BSCV-Dataset/edit/main/README.md#824) part.
 
-**24/08/23:** 
-1. New YouTube-VOS&DAVIS branches will soon be released with tougher parameter adjustments and corruption ratios.
+**Aug 24:**
+
+1. New YouTube-VOS&DAVIS branches is available with tougher parameter adjustments and corruption ratios.
 
 2. New subset with higher resolutions in 1080P and 4K is included.
 
