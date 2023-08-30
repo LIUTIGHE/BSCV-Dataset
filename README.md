@@ -227,6 +227,72 @@ We propose a recovery framework based on end to end video inpainting method whil
 
 ![Vis](Fig/qualitative.png)
 
+More performance comparisons of recovery results in video form are illustrated below
+
+**Under 240P Resolution:** From left to right, top to down is Corrupted Video, Mask Input, STTN, FuseFormer, E2FGVI-HQ, BSCVR-S(Ours), BSCVR-P(Ours), and Ground Truth, in sequence.
+
+<p align="center">
+  <img src="GIF/lady-running_input.gif" alt="Image 1" width="200" height="113"/>
+  <img src="GIF/lady-running_mask.gif" alt="Image 2" width="200" height="113"/>
+  <img src="GIF/lady-runningbsctrain_sttn.gif" alt="Image 3" width="200" height="113"/>
+  <img src="GIF/lady-runningbsctrain_fuseformer.gif" alt="Image 4" width="200" height="113"/>
+  <img src="GIF/lady-runningbsctrain_e2fgvi.gif" alt="Image 5" width="200" height="113"/>
+  <img src="GIF/lady-runningbsctrain_BSCVI_S.gif" alt="Image 6" width="200" height="113"/>
+  <img src="GIF/lady-runningbsctrain_BSCVI_P.gif" alt="Image 7" width="200" height="113"/>
+  <img src="GIF/lady-running_gt.gif" alt="Image 8" width="200" height="113"/>
+</p>
+
+<p align="center">
+  <img src="GIF/8ba5691030_input.gif" alt="Image 1" width="200" height="113"/>
+  <img src="GIF/8ba5691030_mask.gif" alt="Image 2" width="200" height="113"/>
+  <img src="GIF/8ba5691030bsctrain_sttn.gif" alt="Image 3" width="200" height="113"/>
+  <img src="GIF/8ba5691030bsctrain_fuseformer.gif" alt="Image 4" width="200" height="113"/>
+  <img src="GIF/8ba5691030bsctrain_e2fgvi.gif" alt="Image 5" width="200" height="113"/>
+  <img src="GIF/8ba5691030bsctrain_BSCVI_S.gif" alt="Image 6" width="200" height="113"/>
+  <img src="GIF/8ba5691030bsctrain_BSCVI_P.gif" alt="Image 7" width="200" height="113"/>
+  <img src="GIF/8ba5691030_gt.gif" alt="Image 8" width="200" height="113"/>
+</p>
+
+<p align="center">
+  <img src="GIF/trucks-race_input.gif" alt="Image 1" width="200" height="113"/>
+  <img src="GIF/trucks-race_mask.gif" alt="Image 2" width="200" height="113"/>
+  <img src="GIF/trucks-racebsctrain_sttn.gif" alt="Image 3" width="200" height="113"/>
+  <img src="GIF/trucks-racebsctrain_fuseformer.gif" alt="Image 4" width="200" height="113"/>
+  <img src="GIF/trucks-racebsctrain_e2fgvi.gif" alt="Image 5" width="200" height="113"/>
+  <img src="GIF/trucks-racebsctrain_BSCVI_S.gif" alt="Image 6" width="200" height="113"/>
+  <img src="GIF/trucks-racebsctrain_BSCVI_P.gif" alt="Image 7" width="200" height="113"/>
+  <img src="GIF/trucks-race_gt.gif" alt="Image 8" width="200" height="113"/>
+</p>
+
+**Under Original 480/720P Resolution:** From left to right, top to down is Corrupted Video, Mask Input, Ground Truth, Pretrained E2FGVI-HQ, BSCV-trained E2FGVI-HQ, BSCVR-S(Ours), in sequence.
+
+<p align="center">
+  <img src="GIF/heli-landing_input.gif" alt="Image 1" width="272" height="153"/>
+  <img src="GIF/heli-landing_mask.gif" alt="Image 2" width="272" height="153"/>
+  <img src="GIF/heli-landing_gt.gif" alt="Image 3" width="272" height="153"/>
+  <img src="GIF/heli-landingpretrain_e2fgvi.gif" alt="Image 4" width="272" height="153"/>
+  <img src="GIF/heli-landingbsctrain_e2fgvi.gif" alt="Image 5" width="272" height="153"/>
+  <img src="GIF/heli-landingbsctrain_BSCVI_S.gif" alt="Image 6" width="272" height="153"/>
+</p>
+
+<p align="center">
+  <img src="GIF/horse-jump_input.gif" alt="Image 1" width="272" height="153"/>
+  <img src="GIF/horse-jump_mask.gif" alt="Image 2" width="272" height="153"/>
+  <img src="GIF/horse-jump_gt.gif" alt="Image 3" width="272" height="153"/>
+  <img src="GIF/horse-jumppretrain_e2fgvi.gif" alt="Image 4" width="272" height="153"/>
+  <img src="GIF/horse-jumpbsctrain_e2fgvi.gif" alt="Image 5" width="272" height="153"/>
+  <img src="GIF/horse-jumpbsctrain_BSCVI_S.gif" alt="Image 6" width="272" height="153"/>
+</p>
+
+<p align="center">
+  <img src="GIF/jug-selfie_input.gif" alt="Image 1" width="272" height="153"/>
+  <img src="GIF/jug-selfie_mask.gif" alt="Image 2" width="272" height="153"/>
+  <img src="GIF/jug-selfie_gt.gif" alt="Image 3" width="272" height="153"/>
+  <img src="GIF/jug-selfiepretrain_e2fgvi.gif" alt="Image 4" width="272" height="153"/>
+  <img src="GIF/jug-selfiebsctrain_e2fgvi.gif" alt="Image 5" width="272" height="153"/>
+  <img src="GIF/jug-selfiebsctrain_BSCVI_S.gif" alt="Image 6" width="272" height="153"/>
+</p>
+
 ---
 
 For additional comparison with non-end-to-end methods, our preliminary evaluation result is
@@ -237,38 +303,7 @@ For additional comparison with non-end-to-end methods, our preliminary evaluatio
 | **BSCVR-S (Ours)** | 28.8288 | ***0.9138*** | ***0.0399*** | **0.1704** | **0.172** |
 | **BSCVR-P (Ours)** | ***29.0186*** | **0.9166** | **0.0391** | ***0.1730*** | ***0.178*** |
 
----
-
 Performance comparisons of recovery results in video form are illustrated below, from left to right, top to down is Corrupted Video, Mask Input, Ground Truth, FGT, ECFVI, and Our method in sequence.
-
-<!--
-<p align="center">
-  <img src="GIF/mascot_input.gif" alt="Image 1" width="160" height="90"/>
-  <img src="GIF/mascot_mask.gif" alt="Image 2" width="160" height="90"/>
-  <img src="GIF/mascotpretrain_FGT.gif" alt="Image 3" width="160" height="90"/>
-  <img src="GIF/mascotpretrain_ECFVI.gif" alt="Image 4" width="160" height="90"/>
-  <img src="GIF/mascotbsctrain_BSCVI_S.gif" alt="Image 5" width="160" height="90"/>
-  <img src="GIF/mascot_gt.gif" alt="Image 6" width="160" height="90"/>
-</p>
-
-<p align="center">
-  <img src="GIF/walking_input.gif" alt="Image 1" width="160" height="90"/>
-  <img src="GIF/walking_mask.gif" alt="Image 2" width="160" height="90"/>
-  <img src="GIF/walkingpretrain_FGT.gif" alt="Image 3" width="160" height="90"/>
-  <img src="GIF/walkingpretrain_ECFVI.gif" alt="Image 4" width="160" height="90"/>
-  <img src="GIF/walkingbsctrain_BSCVI_S.gif" alt="Image 5" width="160" height="90"/>
-  <img src="GIF/walking_gt.gif" alt="Image 6" width="160" height="90"/>
-</p>
-
-<p align="center">
-  <img src="GIF/tennis_input.gif" alt="Image 1" width="160" height="90"/>
-  <img src="GIF/tennis_mask.gif" alt="Image 2" width="160" height="90"/>
-  <img src="GIF/tennispretrain_FGT.gif" alt="Image 3" width="160" height="90"/>
-  <img src="GIF/tennispretrain_ECFVI.gif" alt="Image 4" width="160" height="90"/>
-  <img src="GIF/tennisbsctrain_BSCVI_S.gif" alt="Image 5" width="160" height="90"/>
-  <img src="GIF/tennis_gt.gif" alt="Image 6" width="160" height="90"/>
-</p>
--->
 
 <p align="center">
   <img src="GIF/mascot_input.gif" alt="Image 1" width="272" height="153"/>
@@ -298,6 +333,35 @@ Performance comparisons of recovery results in video form are illustrated below,
 </p>
 
 These video form presentations well highlight the advantages of our model in recovering long-term video sequences and large-area error patterns caused by bitstream corruptions.
+
+<!--
+<p align="center">
+  <img src="GIF/mascot_input.gif" alt="Image 1" width="160" height="88"/>
+  <img src="GIF/mascot_mask.gif" alt="Image 2" width="160" height="88"/>
+  <img src="GIF/mascotpretrain_FGT.gif" alt="Image 3" width="160" height="88"/>
+  <img src="GIF/mascotpretrain_ECFVI.gif" alt="Image 4" width="160" height="88"/>
+  <img src="GIF/mascotbsctrain_BSCVI_S.gif" alt="Image 5" width="160" height="88"/>
+  <img src="GIF/mascot_gt.gif" alt="Image 6" width="160" height="88"/>
+</p>
+
+<p align="center">
+  <img src="GIF/walking_input.gif" alt="Image 1" width="160" height="88"/>
+  <img src="GIF/walking_mask.gif" alt="Image 2" width="160" height="88"/>
+  <img src="GIF/walkingpretrain_FGT.gif" alt="Image 3" width="160" height="88"/>
+  <img src="GIF/walkingpretrain_ECFVI.gif" alt="Image 4" width="160" height="88"/>
+  <img src="GIF/walkingbsctrain_BSCVI_S.gif" alt="Image 5" width="160" height="88"/>
+  <img src="GIF/walking_gt.gif" alt="Image 6" width="160" height="88"/>
+</p>
+
+<p align="center">
+  <img src="GIF/tennis_input.gif" alt="Image 1" width="160" height="88"/>
+  <img src="GIF/tennis_mask.gif" alt="Image 2" width="160" height="88"/>
+  <img src="GIF/tennispretrain_FGT.gif" alt="Image 3" width="160" height="88"/>
+  <img src="GIF/tennispretrain_ECFVI.gif" alt="Image 4" width="160" height="88"/>
+  <img src="GIF/tennisbsctrain_BSCVI_S.gif" alt="Image 5" width="160" height="88"/>
+  <img src="GIF/tennis_gt.gif" alt="Image 6" width="160" height="88"/>
+</p>
+-->
 
 ## Experimental Setup
 
