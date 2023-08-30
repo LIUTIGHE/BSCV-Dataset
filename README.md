@@ -232,7 +232,7 @@ For additional comparison with non-end-to-end methods, our preliminary evaluatio
 | **BSCVR-S (Ours)** | 28.8288 | ***0.9138*** | ***0.0399*** | **0.1704** | **0.172** |
 | **BSCVR-P (Ours)** | ***29.0186*** | **0.9166** | **0.0391** | ***0.1730*** | ***0.178*** |
 
-Recovery results in the form of video is illustrated below, from left to right is Corrupted Video, Mask Input, FGT, ECFVI, Ours, and Ground Truth in sequence.
+Recovery results in the form of video is illustrated below, from left to right, top to down is Corrupted Video, Mask Input, Ground Truth, FGT, ECFVI, and Our method in sequence.
 
 <!--
 <p align="center">
