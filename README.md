@@ -236,7 +236,7 @@ For additional comparison with non-end-to-end methods, our preliminary evaluatio
 
 ---
 
-Recovery results in the form of video is illustrated below, from left to right, top to down is Corrupted Video, Mask Input, Ground Truth, FGT, ECFVI, and Our method in sequence.
+Performance comparisons of recovery results in video form are illustrated below, from left to right, top to down is Corrupted Video, Mask Input, Ground Truth, FGT, ECFVI, and Our method in sequence.
 
 <!--
 <p align="center">
