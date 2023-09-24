@@ -1,3 +1,5 @@
+(This page is under continuous update and construction..)
+
 # BSCV-Dataset
 <!-- 
 <p align="left">
@@ -9,13 +11,11 @@
     </a>
 </p> -->
 
-<!-- This repo contains code for our paper:
+This repo contains code for our NeurIPS 2023 paper:
 
 [Bitstream-corrupted Video Recovery: A Novel Benchmark Dataset and Method]()
 
-[Tianyi Liu](), [Kejun Wu](), [Yi Wang](), [Wenyang Liu](), [Kim-Hui Yap](), [Lap-Pui Chau]() -->
-
-(This page is under construction)
+[Tianyi Liu](), [Kejun Wu](), [Yi Wang](), [Wenyang Liu](), [Kim-Hui Yap](), [Lap-Pui Chau]()
 
 ## Table of Contents
 
@@ -30,6 +30,9 @@
   - [Experimental Setup](#experimental-setup)
 
 ## Update News
+**Sep 22:**
+
+🎉 We are delight to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchamrk Tracking, we will upload the preprint version soon!
 
 **Aug 30:** 
 
@@ -45,7 +48,7 @@ We shared our proposed video recovery method and evaluation results in the [meth
 
 2. New subset with higher resolutions in 1080P and 4K is included.
 
-3. H.265 protocol is supported, uploading of mentioned subset and branches is in progress due to size and network speed.
+3. H.265 protocol is supported.
 
 
 ## Dataset
