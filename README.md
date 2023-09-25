@@ -32,7 +32,7 @@ This repo contains code for our NeurIPS 2023 paper:
 ## Update News
 **Sep 22:**
 
-🎉 We are delight to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchamrk Tracking, we will upload the preprint version soon!
+🎉 We are delight to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchamrk Track, we will upload the preprint version soon!
 
 **Aug 30:** 
 
