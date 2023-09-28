@@ -393,19 +393,18 @@ For evaluation, we provide all environment configurations in ``requirements.txt`
 $ conda create -n BSCVI python=3.7
 $ pip install -r requirements.txt
 ```
-
+-->
 
 
 ## Citation
 If you find our paper and/or code helpful, please consider citing:
 ```
-@inproceedings{,
-    title = {},
-    author = {},
-    booktitle = {},
-    year = {}
+@article{liu2023bitstream,
+  title={Bitstream-Corrupted Video Recovery: A Novel Benchmark Dataset and Method},
+  author={Liu, Tianyi and Wu, Kejun and Wang, Yi and Liu, Wenyang and Yap, Kim-Hui and Chau, Lap-Pui},
+  journal={arXiv preprint arXiv:2309.13890},
+  year={2023}
 }
 ```
 
-## Acknowledgement
--->
+
