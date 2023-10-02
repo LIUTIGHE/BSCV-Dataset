@@ -32,9 +32,17 @@
 </div>
 
 
+## Update
+**2023.09.22:** 🎉 We are delight to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchamrk Track, we will upload the preprint version soon!
+
+**2023.08.30:** We additionally presented some performance comparisons in video form, which highlights the advantage of our method in recovering long-term and large area corruptions.
+
+**2023.08.29:** We shared our proposed video recovery method and evaluation results in the [method](https://github.com/LIUTIGHE/BSCV-Dataset/edit/main/README.md#824) part.
+
+**2023.08.24:** **1).** New YouTube-VOS&DAVIS branches is available with tougher parameter adjustments and corruption ratios. **2).** New subset with higher resolutions in 1080P and 4K is included. **3).** H.265 protocol is supported.
+
 ## Table of Contents
 
-- [Update News](#update-news)
 - [Dataset](#dataset)
     - [Property](#property)
     - [Download](#download)
@@ -43,121 +51,53 @@
 - [Method](#method)
 - [Experimental Setup](#experimental-setup)
 
-
-## Update News
-**Sep 22:**
-
-🎉 We are delight to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchamrk Track, we will upload the preprint version soon!
-
-**Aug 30:** 
-
-We additionally presented some performance comparisons in video form, which highlights the advantage of our method in recovering long-term and large area corruptions.
-
-**Aug 29:** 
-
-We shared our proposed video recovery method and evaluation results in the [method](https://github.com/LIUTIGHE/BSCV-Dataset/edit/main/README.md#824) part.
-
-**Aug 24:**
-
-1. New YouTube-VOS&DAVIS branches is available with tougher parameter adjustments and corruption ratios.
-
-2. New subset with higher resolutions in 1080P and 4K is included.
-
-3. H.265 protocol is supported.
-
-
 ## Dataset
 
 ![Tesear](teaser_v9.png)
 
 For each video in YouTubeVOS&DAVIS subset, under various parameter setting, we provide differently corrupted videos (from left to right: ``(P, L, S) = (1/16, 0.4, 2048), (1/16, 0.4, 4096), (1/16, 0.2, 4096), (2/16, 0.4, 4096)``, and **additional** ``(1/16, 0.4, 8192), (1/16, 0.8, 4096), (4/16, 0.4, 4096)`` branches , respectively. The explanation of the parameter will be explained below/in paper.).
-<!-- 
+
+<div align="center">
 <table>
   <tr>
-    <td><img src="GIF/1e0c2e54f2_142048.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/1e0c2e54f2_144096.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/1e0c2e54f2_124096.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/1e0c2e54f2_244096.gif" alt="GIF 4" width="180"/></td>
+    <td><img src="GIF/bmx-bumps_142048.gif" alt="GIF 1" width="220"/></td>
+    <td><img src="GIF/bmx-bumps_144096.gif" alt="GIF 2" width="220"/></td>
+    <td><img src="GIF/bmx-bumps_124096.gif" alt="GIF 3" width="220"/></td>
+    <td><img src="GIF/bmx-bumps_244096.gif" alt="GIF 4" width="220"/></td>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="GIF/1e0c2e54f2_142048_rec.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/1e0c2e54f2_144096_rec.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/1e0c2e54f2_124096_rec.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/1e0c2e54f2_244096_rec.gif" alt="GIF 4" width="180"/></td>
-  </tr>
-</table>
--->
-<table>
-  <tr>
-    <td><img src="GIF/bmx-bumps_142048.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/bmx-bumps_144096.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/bmx-bumps_124096.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/bmx-bumps_244096.gif" alt="GIF 4" width="180"/></td>
+    <td><img src="GIF/camel_142048.gif" alt="GIF 1" width="220"/></td>
+    <td><img src="GIF/camel_144096.gif" alt="GIF 2" width="220"/></td>
+    <td><img src="GIF/camel_124096.gif" alt="GIF 3" width="220"/></td>
+    <td><img src="GIF/camel_244096.gif" alt="GIF 4" width="220"/></td>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="GIF/bmx-bumps_142048_rec.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/bmx-bumps_144096_rec.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/bmx-bumps_124096_rec.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/bmx-bumps_244096_rec.gif" alt="GIF 4" width="180"/></td>
+    <td><img src="GIF/mascot_142048.gif" alt="GIF 1" width="220"/></td>
+    <td><img src="GIF/mascot_144096.gif" alt="GIF 2" width="220"/></td>
+    <td><img src="GIF/mascot_124096.gif" alt="GIF 3" width="220"/></td>
+    <td><img src="GIF/mascot_244096.gif" alt="GIF 4" width="220"/></td>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="GIF/camel_142048.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/camel_144096.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/camel_124096.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/camel_244096.gif" alt="GIF 4" width="180"/></td>
+    <td><img src="GIF/tennis_142048.gif" alt="GIF 1" width="220"/></td>
+    <td><img src="GIF/tennis_144096.gif" alt="GIF 2" width="220"/></td>
+    <td><img src="GIF/tennis_124096.gif" alt="GIF 3" width="220"/></td>
+    <td><img src="GIF/tennis_244096.gif" alt="GIF 4" width="220"/></td>
   </tr>
 </table>
-<table>
-  <tr>
-    <td><img src="GIF/camel_142048_rec.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/camel_144096_rec.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/camel_124096_rec.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/camel_244096_rec.gif" alt="GIF 4" width="180"/></td>
-  </tr>
-</table>
-<table>
-  <tr>
-    <td><img src="GIF/mascot_142048.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/mascot_144096.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/mascot_124096.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/mascot_244096.gif" alt="GIF 4" width="180"/></td>
-  </tr>
-</table>
-<table>
-  <tr>
-    <td><img src="GIF/mascot_142048_rec.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/mascot_144096_rec.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/mascot_124096_rec.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/mascot_244096_rec.gif" alt="GIF 4" width="180"/></td>
-  </tr>
-</table>
-<table>
-  <tr>
-    <td><img src="GIF/tennis_142048.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/tennis_144096.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/tennis_124096.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/tennis_244096.gif" alt="GIF 4" width="180"/></td>
-  </tr>
-</table>
-<table>
-  <tr>
-    <td><img src="GIF/tennis_142048_rec.gif" alt="GIF 1" width="180"/></td>
-    <td><img src="GIF/tennis_144096_rec.gif" alt="GIF 2" width="180"/></td>
-    <td><img src="GIF/tennis_124096_rec.gif" alt="GIF 3" width="180"/></td>
-    <td><img src="GIF/tennis_244096_rec.gif" alt="GIF 4" width="180"/></td>
-  </tr>
-</table>
+---
+
+</div>
 
 ### Property
 - Flexible video resolution setting (480P, 720P, 1080P, 4K)
 - Realistic video degradation caused by bitstream corruption.
-- Various unpredictable error pattern in different degree.
+- Unpredictable error pattern in various degree.
 - With about 30K video clips and 3.5M frames, 50% frames have corruption.
 - ...
 
@@ -165,15 +105,15 @@ For each video in YouTubeVOS&DAVIS subset, under various parameter setting, we p
 For dataset downloading, please check this [link](https://entuedu-my.sharepoint.com/:f:/g/personal/liut0038_e_ntu_edu_sg/Egn7Xygv7UJBilL9z3nFo_4Bm5LdeoXCv-uiDo3qANsmTw?e=fMU9gZ) (Extension for higher resolution, more parameter combination, and uploading are in progress).
 
 ### Extraction
-We have seperated the dataset into training and testing set and for each branch in YouTube-VOS&DAVIS.
-YouTube-UGC 1080P subset and Videezy4K 4K subset (for testing).
+We have seperated the dataset into training and testing set and for each branch in YouTube-VOS & DAVIS.
+YouTube-UGC 1080P subset and Videezy4K 4K subset is currently constructed for testing.
 After downloading the ``.tar.gz`` files, please firstly restore the original ``.tar.gz`` files, unzipping the archives and formatting the folders by
 ```
 $ bash format.sh
 ```
 
 After the data preparation, ffmpeg encoded orignial (GT) video bitstream is provided in the ``_144096`` branch with folder name ``GT_h264`` and its decoded frame sequence with corruption is provided in the folder named ``GT_JPEGImages``.
-We also provide the h264 bitstreams of each video and their decoded frame sequence as commonlu used video dataset.
+We also provide the h264 bitstreams of each video and their decoded frame sequence as commonly used video dataset.
 Additionally, the mask sequence which is used for corruption region indication is provided in the ``masks`` folder in each branch, the files are structured as following:
 ```
 BSCV-Dataset
