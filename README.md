@@ -1,33 +1,48 @@
-(This page is under continuous update and construction..)
+<div align="center">
 
-# BSCV-Dataset
-<!-- 
-<p align="left">
-    <a href=''>
+<h1>BitStream-Corrupted Video Recovery:</br >A Novel Benchmark Dataset and Method</h1>
+
+<div>
+    <a href='' target='_blank'>Tianyi Liu*<sup>1</sup></a>&emsp;
+    <a href='' target='_blank'>Kejun Wu*<sup>1</sup></a>&emsp;
+    <a href='' target='_blank'>Yi Wang<sup>2</sup></a>&emsp;
+    <a href='' target='_blank'>Wenyang Liu<sup>1</sup></a>&emsp;
+    <a href='' target='_blank'>Kim-Hui Yap<sup>1</sup></a>&emsp;
+    <a href='' target='_blank'>Lap-pui Chau<sup>2</sup></a>
+</div>
+<div>
+    <sup>1</sup>Nanyang Technological University&emsp;
+    <sup>2</sup>Hong Kong polytechnic university
+</div>
+
+<div>
+    <strong>NeurIPS 2023</strong> Dataset and Benchamrk Track
+</div>
+
+<p align="center">
+    <a href='https://arxiv.org/abs/2309.13890'>
       <img src='https://img.shields.io/badge/Paper-arXiv-green?style=plastic&logo=arXiv&logoColor=green' alt='Paper arXiv'>
     </a>
-    <a href=''>
-      <img src='https://img.shields.io/badge/Paper-PDF-red?style=plastic&logo=adobeacrobatreader&logoColor=red' alt='Paper PDF'>
-    </a>
-</p> -->
+</p>
 
-This repo contains code for our NeurIPS 2023 paper:
+<p align="center"> (This page is under continuous update and construction..) </p>
 
-[Bitstream-corrupted Video Recovery: A Novel Benchmark Dataset and Method]()
+---
 
-[Tianyi Liu](), [Kejun Wu](), [Yi Wang](), [Wenyang Liu](), [Kim-Hui Yap](), [Lap-Pui Chau]()
+</div>
+
 
 ## Table of Contents
 
-- [BSCV-Dataset](#bscv-dataset)
-  - [Update News](#update-news)
-  - [Dataset](#dataset)
+- [Update News](#update-news)
+- [Dataset](#dataset)
     - [Property](#property)
     - [Download](#download)
     - [Extraction](#extraction)
     - [Extension](#extension)
-  - [Method](#method)
-  - [Experimental Setup](#experimental-setup)
+- [Method](#method)
+- [Experimental Setup](#experimental-setup)
+
 
 ## Update News
 **Sep 22:**
