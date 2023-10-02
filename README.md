@@ -12,7 +12,7 @@
 </div>
 <div>
     <sup>1</sup>Nanyang Technological University&emsp;
-    <sup>2</sup>Hong Kong polytechnic university
+    <sup>2</sup>Hong Kong Polytechnic University
 </div>
 
 <div>
