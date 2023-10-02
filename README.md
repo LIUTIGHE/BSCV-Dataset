@@ -5,7 +5,7 @@
 <div>
     <a href='' target='_blank'>Tianyi Liu*<sup>1</sup></a>&emsp;
     <a href='' target='_blank'>Kejun Wu*<sup>1</sup></a>&emsp;
-    <a href='' target='_blank'>Yi Wang<sup>2</sup></a>&emsp;
+    <a href='https://wangyintu.github.io/' target='_blank'>Yi Wang<sup>2</sup></a>&emsp;
     <a href='' target='_blank'>Wenyang Liu<sup>1</sup></a>&emsp;
     <a href='' target='_blank'>Kim-Hui Yap<sup>1</sup></a>&emsp;
     <a href='' target='_blank'>Lap-Pui Chau<sup>2</sup></a>
