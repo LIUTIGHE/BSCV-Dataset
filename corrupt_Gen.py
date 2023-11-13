@@ -5,6 +5,7 @@ Created on Tue Feb  7 13:23:55 2023
 @author: LIU TIANYI
 """
 
+import argparse
 import os
 import binascii
 import random
