@@ -33,7 +33,8 @@
 
 
 ## Update
-**2023.09.22:** 🎉 We are delight to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchamrk Track, we will upload the preprint version soon!
+
+**2023.09.22:** 🎉 We are delight to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchamrk Track, ~~we will upload the preprint version soon~~ the preprint version is available at [arXiv](https://arxiv.org/abs/2309.13890)!
 
 **2023.08.30:** We additionally presented some performance comparisons in video form, which highlights the advantage of our method in recovering long-term and large area corruptions.
 
