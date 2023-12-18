@@ -193,26 +193,27 @@ PS: It seems the working principle is different between Linux and Windows versio
 We propose a recovery framework based on end to end video inpainting method while leveraging the partial contents in the corrupted region, and we achieved better recovery quality compared with existing SOTA video inpainting methods.
 ![Method](assets/Fig/overview.png)
 
-![Tab](assets/Fig/quant_eval.png)
-![Vis](assets/Fig/qual_eval.png)
+## Experiments
 
-## Experimental Setup
-
-The code for our method, experimental setup, and evaluation scripts will be released soon after packaging and checking.
-
-<!-- 
-## Experimental Setup
-
-### Environmental Setting for Evaluation
-For evaluation, we provide all environment configurations in ``requirements.txt``.
-
+### Dependencies and Installation
 ```bash
-$ conda create -n BSCVI python=3.7
+$ git clone https://github.com/LIUTIGHE/BSCV-Dataset.git
+$ conda create -n BSCVR python=3.7
 $ pip install -r requirements.txt
 ```
--->
+
+### Prepare Pre-trained models
+Download our pretrained models from this [link](https://entuedu-my.sharepoint.com/:f:/g/personal/liut0038_e_ntu_edu_sg/EvdxcFMZjsBDvWQxcXnj3AYBHDcVa5-jacK4szujTd6cqw?e=QfZgjX) to the ```/checkpoints``` folder.
+
+### Quick Test
+```bash
+python test.py --width 854 --height 480 --type BSCVR_S --ckpt ./checkpoints/ --video /path_to_frame_sequence --mask /path_to_mask_sequence --framestride 50
+```
+The results will be saved in the ```result``` foldedr, please indicate the width and height of the input video, and adjust ```--framestride``` to reduce the VRAM occupancy or improve inference efficiency.
 
 ## Results
+![Tab](assets/Fig/quant_eval.png)
+![Vis](assets/Fig/qual_eval.png)
 More visualized performance comparisons of recovery results in video form are illustrated below
 
 **Under 240P Resolution:** From left to right, top to down is Corrupted Video, Mask Input, STTN, FuseFormer, E2FGVI-HQ, BSCVR-S(Ours), BSCVR-P(Ours), and Ground Truth, in sequence.
