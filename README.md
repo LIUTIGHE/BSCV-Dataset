@@ -12,11 +12,11 @@
 </div>
 <div>
     <sup>1</sup>Nanyang Technological University&emsp;
-    <sup>2</sup>Hong Kong Polytechnic University
+    <sup>2</sup>The Hong Kong Polytechnic University
 </div>
 
 <div>
-    <strong>NeurIPS 2023</strong> Dataset and Benchamrk Track
+    <strong>NeurIPS 2023</strong>
 </div>
 
 <p align="center">
