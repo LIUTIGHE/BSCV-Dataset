@@ -200,6 +200,8 @@ We propose a recovery framework based on end to end video inpainting method whil
 ```bash
 $ git clone https://github.com/LIUTIGHE/BSCV-Dataset.git
 $ conda create -n BSCVR python=3.7
+$ conda activate BSCVR
+$ pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 -f https://download.pytorch.org/whl/cu111/torch_stable.html
 $ pip install -r requirements.txt
 ```
 
@@ -208,7 +210,7 @@ Download our pretrained models from this [link](https://entuedu-my.sharepoint.co
 
 ### Quick Test
 ```bash
-python test.py --width 854 --height 480 --type BSCVR_S --ckpt ./checkpoints/ --video /path_to_frame_sequence --mask /path_to_mask_sequence --framestride 50
+python test.py --width 854 --height 480 --type BSCVR_S --ckpt ./checkpoints/BSCVR_S.pth --video /path_to_frame_sequence --mask /path_to_mask_sequence --framestride 50
 ```
 The results will be saved in the ```result``` foldedr, please indicate the width and height of the input video, and adjust ```--framestride``` to reduce the VRAM occupancy or improve inference efficiency.
 
