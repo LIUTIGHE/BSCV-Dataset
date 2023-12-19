@@ -23,7 +23,6 @@ parser.add_argument("--step", type=int, default=10)
 parser.add_argument("--num_ref", type=int, default=-1)
 parser.add_argument("--neighbor_stride", type=int, default=5)
 parser.add_argument("--framestride", type=int, default=30)
-# parser.add_argument("--set_size", action='store_true', default=False)
 parser.add_argument("--width", type=int)
 parser.add_argument("--height", type=int)
 
