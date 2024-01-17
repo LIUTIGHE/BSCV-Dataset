@@ -175,7 +175,7 @@ PS: It seems the working principle is different between Linux and Windows versio
 ## Method
 
 We propose a recovery framework based on end to end video inpainting method while leveraging the partial contents in the corrupted region, and we achieved better recovery quality compared with existing SOTA video inpainting methods.
-![Method](assets/Fig/overview.png)
+![Method](assets/Fig/overview_github.png)
 
 ## Experiments
 
@@ -235,7 +235,7 @@ More visualized performance comparisons of recovery results in video form are il
 
 **Under 240P Resolution:** From left to right, top to down is Corrupted Video, Mask Input, STTN, FuseFormer, E2FGVI-HQ, BSCVR-S(Ours), BSCVR-P(Ours), and Ground Truth, in sequence.
 
-<p align="center">
+<p align="left">
   <img src="assets/GIF/lady-running_input.gif" alt="Image 1" width="200" height="113"/>
   <img src="assets/GIF/lady-running_mask.gif" alt="Image 2" width="200" height="113"/>
   <img src="assets/GIF/lady-runningbsctrain_sttn.gif" alt="Image 3" width="200" height="113"/>
@@ -246,6 +246,7 @@ More visualized performance comparisons of recovery results in video form are il
   <img src="assets/GIF/lady-running_gt.gif" alt="Image 8" width="200" height="113"/>
 </p>
 
+<!--
 <p align="center">
   <img src="assets/GIF/8ba5691030_input.gif" alt="Image 1" width="200" height="113"/>
   <img src="assets/GIF/8ba5691030_mask.gif" alt="Image 2" width="200" height="113"/>
@@ -267,10 +268,11 @@ More visualized performance comparisons of recovery results in video form are il
   <img src="assets/GIF/trucks-racebsctrain_BSCVI_P.gif" alt="Image 7" width="200" height="113"/>
   <img src="assets/GIF/trucks-race_gt.gif" alt="Image 8" width="200" height="113"/>
 </p>
+-->
 
 **Under Original 480/720P Resolution:** From left to right, top to down is Corrupted Video, Mask Input, Ground Truth, Pretrained E2FGVI-HQ, BSCV-trained E2FGVI-HQ, BSCVR-S(Ours), in sequence.
 
-<p align="center">
+<p align="left">
   <img src="assets/GIF/heli-landing_input.gif" alt="Image 1" width="272" height="153"/>
   <img src="assets/GIF/heli-landing_mask.gif" alt="Image 2" width="272" height="153"/>
   <img src="assets/GIF/heli-landing_gt.gif" alt="Image 3" width="272" height="153"/>
@@ -310,7 +312,7 @@ For additional comparison with non-end-to-end methods, our preliminary evaluatio
 
 Performance comparisons of recovery results in video form are illustrated below, from left to right, top to down is Corrupted Video, Mask Input, Ground Truth, FGT, ECFVI, and Our method in sequence.
 
-<p align="center">
+<p align="left">
   <img src="assets/GIF/mascot_input.gif" alt="Image 1" width="272" height="153"/>
   <img src="assets/GIF/mascot_mask.gif" alt="Image 2" width="272" height="153"/>
   <img src="assets/GIF/mascot_gt.gif" alt="Image 6" width="272" height="153"/>
