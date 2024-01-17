@@ -161,7 +161,7 @@ Additionally, the mask sequence which is used for corruption region indication i
 We adopt FFmpeg as our video codec, please refer to the official guide line for your ffmpeg installation.
 
 We proposed a parameter model for generating bitstream corruption and therefore causing arbitrarily corrupted videos, even additional branches. 
-![Param_Model](extend_fig.png)
+![Param_Model](assets/Fig/extend_fig.png)
 
 You can use the provided program with your parameter combination to generate arbitrary branches based on the GOP size 16 as our setting, by the following commands, e.g.
 ```
