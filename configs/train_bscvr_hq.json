@@ -18,7 +18,7 @@
         "GAN_LOSS": "hinge"
     },
     "model": {
-        "net": "bscvr_dr",
+        "net": "bscvr_hq",
         "no_dis": 0
     },
     "trainer": {
