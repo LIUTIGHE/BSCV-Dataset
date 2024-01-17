@@ -1,8 +1,9 @@
 #!/bin/sh  
 
 # Choose one path to compress videos
-folder='./datasets/davis/BSCJPEGImages'
-# folder='./datasets/youtube-vos/BSCJPEGImages'
+# folder='./datasets/youtube-vos/BSC_JPEGImages'
+# folder='./datasets/youtube-vos/GT_JPEGImages'
+# folder='./datasets/youtube-vos/TEST_JPEGImages'
 
 for file in $folder/*
   do
