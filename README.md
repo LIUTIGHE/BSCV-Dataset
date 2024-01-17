@@ -103,11 +103,10 @@ For each video in YouTubeVOS&DAVIS subset, under various parameter setting, we p
 - With about 30K video clips and 3.5M frames, 50% frames have corruption.
 - ...
 
-### Download
-For dataset downloading, please check this [link](https://entuedu-my.sharepoint.com/:f:/g/personal/liut0038_e_ntu_edu_sg/Egn7Xygv7UJBilL9z3nFo_4Bm5LdeoXCv-uiDo3qANsmTw?e=fMU9gZ) (Extension for higher resolution, more parameter combination, and uploading are in progress).
+### Download & Extraction
+**Dowload:** For dataset downloading, please check this [link](https://entuedu-my.sharepoint.com/:f:/g/personal/liut0038_e_ntu_edu_sg/Egn7Xygv7UJBilL9z3nFo_4Bm5LdeoXCv-uiDo3qANsmTw?e=fMU9gZ) (Extension for higher resolution, more parameter combination, and uploading are in progress).
 
-### Extraction
-We have seperated the dataset into training and testing set and for each branch in YouTube-VOS & DAVIS.
+**Extraction:** We have seperated the dataset into training and testing set and for each branch in YouTube-VOS & DAVIS.
 YouTube-UGC 1080P subset and Videezy4K 4K subset is currently constructed for testing.
 After downloading the ``.tar.gz`` files, please firstly restore the original ``.tar.gz`` files, unzipping the archives and formatting the folders by
 ```
@@ -118,60 +117,44 @@ After the data preparation, ffmpeg encoded orignial (GT) video bitstream is prov
 We also provide the h264 bitstreams of each video and their decoded frame sequence as commonly used video dataset.
 Additionally, the mask sequence which is used for corruption region indication is provided in the ``masks`` folder in each branch, the files are structured as following:
 ```
-BSCV-Dataset
-|-scripts                         # Codes for dataset construction
-|-YouTube-VOS&DAVIS
-| |-train_144096                    # Branch_144096
-|  |-GT_h264
-|    |-##########.h264            # H.264 video bitstream with original id in YouTube-VOS dataset
-|    |-...                        # 3,471 bitstream files in total
-|  |-GT_JPEGImages
-|    |-##########                 # Corresponding video ID
-|      |-00000.jpg                # Decoded frame sequence with different length
-|      |-...
-|    |-...                        # 3,471 frame sequence folder in total
-|  |-BSC_h264                     # Corresponding corrupted bitstream
-|    |-##########_2.h264          
-|    |-...                        
-|  |-BSC_JPEGImages               # Corresponding decoded corrupted frame sequence
-|    |-##########
-|      |-00000.jpg              
-|      |-...
-|    |-...
-|  |-masks                        # Corresponding mask sequence
-|    |-##########
-|      |-00000.png
-|      |-...
-|    |-...         
-|  |-Diff                         # The binary difference map for mask geneartion by morphological operations
-|    |-##########
-|      |-00000.png
-|      |-...
-|    |-...
-| |-train_142048                    # The following branch has the same structure, without GT data only
-|  |-BSC_h264
-|  |-BSC_JPEGImages
-|  |-masks       
-|  |-Diff      
-| |...
-|-YouTube-UGC-1080P
-| |-FHD
-| |-FHD_124096
-|  |-GT_h264       
-|  |-GT_JPEGImages
-|  |-BSC_h264
-|  |-BSC_JPEGImages
-|  |-masks       
-|  |-Diff
-| |...
-|-Videezy4K-4K
-| |-QHD
-|  |-GT_h264       
-|  |-GT_JPEGImages
-|  |-BSC_h264
-|  |-BSC_JPEGImages
-|  |-masks       
-|  |-Diff
+|- BSCV-Dataset
+   |- scripts                             # Codes for dataset construction
+   |- YouTube-VOS&DAVIS
+     |- train_144096                      # Branch_144096
+        |- GT_h264
+           |- <video_id>.h264             # H.264 video bitstream with original id in YouTube-VOS dataset, 3,471 bitstream files in total
+        |- BSC_h264                       # Corresponding corrupted bitstream
+           |- <video_id>_2.h264 
+        |- GT_JPEGImages
+           |- <video_id>                  # Corresponding video ID
+              |- 00000.jpg                # Decoded frame sequence with different length, 3,471 frame sequence folder in total                             
+        |- BSC_JPEGImages                 # Corresponding decoded corrupted frame sequence
+           |- <video_id>
+              |- 00000.jpg              
+        |- masks                          # Corresponding mask sequence
+           |- <video_id>
+              |- 00000.png      
+        |- Diff                           # The binary difference map for mask geneartion
+           |- < video_id>
+              |- 00000.png
+      |- train_142048                      # The following branch has the same structure, without GT data only
+   |- YouTube-UGC-1080P
+      |- FHD
+         |- FHD_124096
+            |- GT_h264       
+            |- GT_JPEGImages
+            |- BSC_h264
+            |- BSC_JPEGImages
+            |- masks
+            |- Diff
+   |- Videezy4K-4K
+      |- QHD
+         |- GT_h264       
+         |- GT_JPEGImages
+         |- BSC_h264
+         |- BSC_JPEGImages
+         |- masks       
+         |- Diff
 ```
 
 ### Extension
@@ -213,6 +196,37 @@ Download our pretrained models from this [link](https://entuedu-my.sharepoint.co
 python test.py --width 854 --height 480 --type BSCVR_S --ckpt ./checkpoints/BSCVR_S.pth --video /path_to_frame_sequence --mask /path_to_mask_sequence --framestride 50
 ```
 The results will be saved in the ```result``` foldedr, please indicate the width and height of the input video, and adjust ```--framestride``` to reduce the VRAM occupancy or improve inference efficiency.
+
+<!--
+### Dataset Processing for BSCVR Training
+At current stage, we use the branch ```_144096``` for model training and please follow the steps below to process the dataset
+1. Following the download instruction and save the .zip file for ```train_144096``` branch under the folder ```dataset/youtube-vos/```
+2. Run ```sh datasets/zip_dir.sh``` (**Note:** please edit the folder path accordingly for GT and corrupted video files) for compressing each video in ```datasets/youtube-vos/BSC_JPEGImages``` and ```datasets/youtube-vos/GT_JPEGImages```.
+The `datasets` directory structure will be arranged as: 
+```
+datasets
+   |- youtube-vos
+      |- BSC_JPEGImages
+         |- <video_id>.zip
+         |- <video_id>.zip
+      |- GT_JPEGImages
+         |- <video_id>.zip
+         |- <video_id>.zip
+      |- masks
+         |- <video_id>
+            |- 00000.png
+            |- 00001.png
+      |- train.json
+   |- zip_file.sh
+   |- Diff
+   |- GT_h264
+   |- 
+```
+3. Run the following command to train BSCVR
+```
+python train.py -c configs/train_bscvr_hq.json
+```
+-->
 
 ## Results
 ![Tab](assets/Fig/quant_eval.png)
@@ -265,6 +279,7 @@ More visualized performance comparisons of recovery results in video form are il
   <img src="assets/GIF/heli-landingbsctrain_BSCVI_S.gif" alt="Image 6" width="272" height="153"/>
 </p>
 
+<!--
 <p align="center">
   <img src="assets/GIF/horse-jump_input.gif" alt="Image 1" width="272" height="153"/>
   <img src="assets/GIF/horse-jump_mask.gif" alt="Image 2" width="272" height="153"/>
@@ -282,7 +297,7 @@ More visualized performance comparisons of recovery results in video form are il
   <img src="assets/GIF/jug-selfiebsctrain_e2fgvi.gif" alt="Image 5" width="272" height="153"/>
   <img src="assets/GIF/jug-selfiebsctrain_BSCVI_S.gif" alt="Image 6" width="272" height="153"/>
 </p>
-
+-->
 ---
 
 For additional comparison with non-end-to-end methods, our preliminary evaluation result is
@@ -304,6 +319,7 @@ Performance comparisons of recovery results in video form are illustrated below,
   <img src="assets/GIF/mascotbsctrain_BSCVI_S.gif" alt="Image 5" width="272" height="153"/>
 </p>
 
+<!--
 <p align="center">
   <img src="assets/GIF/walking_input.gif" alt="Image 1" width="272" height="153"/>
   <img src="assets/GIF/walking_mask.gif" alt="Image 2" width="272" height="153"/>
@@ -321,6 +337,7 @@ Performance comparisons of recovery results in video form are illustrated below,
   <img src="assets/GIF/tennispretrain_ECFVI.gif" alt="Image 4" width="272" height="153"/>
   <img src="assets/GIF/tennisbsctrain_BSCVI_S.gif" alt="Image 5" width="272" height="153"/>
 </p>
+-->
 
 These video form presentations well highlight the advantages of our model in recovering long-term video sequences and large-area error patterns caused by bitstream corruptions.
 
@@ -365,4 +382,8 @@ If you find our paper and/or code helpful, please consider citing:
 }
 ```
 
+## Acknowledgement
+This repository is maintained by Tianyi Liu
+
+This code is based on [E2FGVI](https://github.com/MCG-NKU/E2FGVI/tree/master), thanks for their awesome work.
 
