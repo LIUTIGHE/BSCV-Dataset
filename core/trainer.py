@@ -18,8 +18,6 @@ from core.dataset import TrainDataset
 from model.modules.flow_comp import FlowCompletionLoss
 from model.modules.feat_refine import FeatureRefineLoss
 from model.modules.feat_enhance import EnhanceLoss
-from model.modules.feat_dr import invFeatLoss, varFeatLoss
-from model.bscvi_hq import Encoder
 
 import torch.autograd as autograd
 
@@ -56,8 +54,6 @@ class Trainer:
         self.adversarial_loss = self.adversarial_loss.to(self.config['device'])
         self.l1_loss = nn.L1Loss()
         self.flow_comp_loss = FlowCompletionLoss().to(self.config['device'])
-        # self.inv_feat_loss = invFeatLoss().to(self.config['device']) # KL divergence
-        self.inv_feat_loss = nn.L1Loss()
 
         # setup models including generator and discriminator
         net = importlib.import_module('model.' + config['model']['net'])
@@ -324,8 +320,7 @@ class Trainer:
             gt_local_frames = (frames[:, :l_t, ...] + 1) / 2
             gt_masked_frames = (frames * (1 - masks).float())
             
-            pred_imgs, pred_flows, pred_inv_feat, pred_var_feat = self.netG(masked_frames, corrupted_frames, l_t)
-            _, _, gt_inv_feat, gt_var_feat = self.netG(gt_masked_frames, uncorrupted_frames, l_t)
+            pred_imgs, pred_flows = self.netG(masked_frames, corrupted_frames, l_t)
 
             pred_flows = torch.stack(pred_flows)
             pred_flows = tuple(torch.unbind(pred_flows))
@@ -335,12 +330,6 @@ class Trainer:
 
             # compute flow completion loss
             flow_loss = self.flow_comp_loss(pred_flows, gt_local_frames)
-
-            # compute self-supervised inv_feat loss
-            inv_f_loss = self.inv_feat_loss(pred_inv_feat, gt_inv_feat)
-
-            # # compute self-supervised var_feat loss
-            # var_f_loss = 
 
             gen_loss = 0
             dis_loss = 0
@@ -366,9 +355,6 @@ class Trainer:
 
             flow_loss = flow_loss * self.config['losses']['flow_weight']
             gen_loss += flow_loss
-                        
-            inv_f_loss = inv_f_loss * self.config['losses']['inv_feat_weight']
-            gen_loss += inv_f_loss
 
             # generator l1 loss
             hole_loss_0 = self.l1_loss(pred_imgs * masks, frames * masks)
@@ -402,8 +388,6 @@ class Trainer:
                              hole_loss.item())
             self.add_summary(self.gen_writer, 'loss/valid_loss',
                              valid_loss.item())
-            self.add_summary(self.gen_writer, 'loss/inv_f_loss',
-                             inv_f_loss.item())
             
             self.update_learning_rate()      
             self.iteration += 1
@@ -415,13 +399,11 @@ class Trainer:
                     pbar.set_description((f"flow: {flow_loss.item():.3f}; "
                                           f"d: {dis_loss.item():.3f}; "
                                           f"hole: {hole_loss.item():.3f}; "
-                                          f"valid: {valid_loss.item():.3f}; "
-                                          f"inv_feat: {inv_f_loss.item():.3f}"))
+                                          f"valid: {valid_loss.item():.3f}; "))
                 else:
                     pbar.set_description((f"flow: {flow_loss.item():.3f}; "
                                           f"hole: {hole_loss.item():.3f}; "
-                                          f"valid: {valid_loss.item():.3f}; "
-                                          f"inv_feat: {inv_f_loss.item():.3f}"))
+                                          f"valid: {valid_loss.item():.3f}; "))
 
                 if self.iteration % self.train_args['log_freq'] == 0:
                     if not self.config['model']['no_dis']:
@@ -430,14 +412,12 @@ class Trainer:
                                      f"d: {dis_loss.item():.4f}; "
                                      f"hole: {hole_loss.item():.4f}; "
                                      f"valid: {valid_loss.item():.4f}; "
-                                     f"inv_feat: {inv_f_loss.item():.4f}"
                                         )
                     else:
                         logging.info(f"[Iter {self.iteration}] "
                                      f"flow: {flow_loss.item():.4f}; "
                                      f"hole: {hole_loss.item():.4f}; "
                                      f"valid: {valid_loss.item():.4f}; "
-                                     f"inv_feat: {inv_f_loss.item():.4f}"
                                      )
 
             # saving models
