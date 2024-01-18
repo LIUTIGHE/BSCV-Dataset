@@ -43,15 +43,16 @@
 
 **2023.08.24:** **1).** New YouTube-VOS&DAVIS branches is available with tougher parameter adjustments and corruption ratios. **2).** New subset with higher resolutions in 1080P and 4K is included. **3).** H.265 protocol is supported.
 
+## TODO
+- [ ] Training scripts revision and uploading.
+
 ## Table of Contents
 
 - [Dataset](#dataset)
-    - [Property](#property)
-    - [Download](#download)
-    - [Extraction](#extraction)
+    - [Features](#features)
+    - [Download & Extraction](#extraction)
     - [Extension](#extension)
 - [Method](#method)
-- [Experimental Setup](#experimental-setup)
 
 ## Dataset
 
@@ -305,8 +306,8 @@ More visualized performance comparisons of recovery results in video form are il
 For additional comparison with non-end-to-end methods, our preliminary evaluation result is
 | Method | PSNR $\uparrow$ | SSIM $\uparrow$ | LPIPS $\downarrow$ | VFID $\downarrow$ | Runtime |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| FGT[2] | **31.5407** | 0.8967 | 0.0486 | 0.3368 | ~1.97 |
-| ECFVI[1] | 20.8676 | 0.7692 | 0.0705 | 0.3019 | ~2.24 |
+| FGT | **31.5407** | 0.8967 | 0.0486 | 0.3368 | ~1.97 |
+| ECFVI | 20.8676 | 0.7692 | 0.0705 | 0.3019 | ~2.24 |
 | **BSCVR-S (Ours)** | 28.8288 | ***0.9138*** | ***0.0399*** | **0.1704** | **0.172** |
 | **BSCVR-P (Ours)** | ***29.0186*** | **0.9166** | **0.0391** | ***0.1730*** | ***0.178*** |
 
@@ -385,7 +386,7 @@ If you find our paper and/or code helpful, please consider citing:
 ```
 
 ## Acknowledgement
-This repository is maintained by Tianyi Liu
+This repository is maintained by Tianyi Liu, please feel free to contact me via `liut0038ATe.mtu.edu.sg`.
 
 This code is based on [E2FGVI](https://github.com/MCG-NKU/E2FGVI/tree/master), thanks for their awesome work.
 
