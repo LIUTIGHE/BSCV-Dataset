@@ -60,40 +60,60 @@
 
 For each video in YouTubeVOS&DAVIS subset, under various parameter setting, we provide differently corrupted videos (from left to right: ``(P, L, S) = (1/16, 0.4, 2048), (1/16, 0.4, 4096), (1/16, 0.2, 4096), (2/16, 0.4, 4096)``, and **additional** ``(1/16, 0.4, 8192), (1/16, 0.8, 4096), (4/16, 0.4, 4096)`` branches , respectively. The explanation of the parameter will be explained below/in paper.).
 
+<p align="center">
+  <img src="assets/GIF/bmx-bumps_142048.gif" alt="GIF 1" width="245" height="137"/>
+  <img src="assets/GIF/bmx-bumps_144096.gif" alt="GIF 2" width="245" height="137"/>
+  <img src="assets/GIF/bmx-bumps_124096.gif" alt="GIF 3" width="245" height="137"/>
+  <img src="assets/GIF/bmx-bumps_244096.gif" alt="GIF 4" width="245" height="137"/>
+  <img src="assets/GIF/camel_142048.gif" alt="GIF 1" width="245" height="137"/>
+  <img src="assets/GIF/camel_144096.gif" alt="GIF 2" width="245" height="137"/>
+  <img src="assets/GIF/camel_124096.gif" alt="GIF 3" width="245" height="137"/>
+  <img src="assets/GIF/camel_244096.gif" alt="GIF 4" width="245" height="137"/>
+  <img src="assets/GIF/mascot_142048.gif" alt="GIF 1" width="245" height="137"/>
+  <img src="assets/GIF/mascot_144096.gif" alt="GIF 2" width="245" height="137"/>
+  <img src="assets/GIF/mascot_124096.gif" alt="GIF 3" width="245" height="137"/>
+  <img src="assets/GIF/mascot_244096.gif" alt="GIF 4" width="245" height="137"/>
+  <img src="assets/GIF/tennis_142048.gif" alt="GIF 1" width="245" height="137"/>
+  <img src="assets/GIF/tennis_144096.gif" alt="GIF 2" width="245" height="137"/>
+  <img src="assets/GIF/tennis_124096.gif" alt="GIF 3" width="245" height="137"/>
+  <img src="assets/GIF/tennis_244096.gif" alt="GIF 4" width="245" height="137"/>
+</p>
+
+<!---
 <div align="center">
 <table>
   <tr>
-    <td><img src="assets/GIF/bmx-bumps_142048.gif" alt="GIF 1" width="220"/></td>
-    <td><img src="assets/GIF/bmx-bumps_144096.gif" alt="GIF 2" width="220"/></td>
-    <td><img src="assets/GIF/bmx-bumps_124096.gif" alt="GIF 3" width="220"/></td>
-    <td><img src="assets/GIF/bmx-bumps_244096.gif" alt="GIF 4" width="220"/></td>
+    <img src="assets/GIF/bmx-bumps_142048.gif" alt="GIF 1" width="272" height="153"/>
+    <img src="assets/GIF/bmx-bumps_144096.gif" alt="GIF 2" width="272" height="153"/>
+    <img src="assets/GIF/bmx-bumps_124096.gif" alt="GIF 3" width="272" height="153"/>
+    <img src="assets/GIF/bmx-bumps_244096.gif" alt="GIF 4" width="272" height="153"/>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="assets/GIF/camel_142048.gif" alt="GIF 1" width="220"/></td>
-    <td><img src="assets/GIF/camel_144096.gif" alt="GIF 2" width="220"/></td>
-    <td><img src="assets/GIF/camel_124096.gif" alt="GIF 3" width="220"/></td>
-    <td><img src="assets/GIF/camel_244096.gif" alt="GIF 4" width="220"/></td>
+    <img src="assets/GIF/camel_142048.gif" alt="GIF 1" width="272" height="153"/>
+    <img src="assets/GIF/camel_144096.gif" alt="GIF 2" width="272" height="153"/>
+    <img src="assets/GIF/camel_124096.gif" alt="GIF 3" width="272" height="153"/>
+    <img src="assets/GIF/camel_244096.gif" alt="GIF 4" width="272" height="153"/>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="assets/GIF/mascot_142048.gif" alt="GIF 1" width="220"/></td>
-    <td><img src="assets/GIF/mascot_144096.gif" alt="GIF 2" width="220"/></td>
-    <td><img src="assets/GIF/mascot_124096.gif" alt="GIF 3" width="220"/></td>
-    <td><img src="assets/GIF/mascot_244096.gif" alt="GIF 4" width="220"/></td>
+    <img src="assets/GIF/mascot_142048.gif" alt="GIF 1" width="272" height="153"/>
+    <img src="assets/GIF/mascot_144096.gif" alt="GIF 2" width="272" height="153"/>
+    <img src="assets/GIF/mascot_124096.gif" alt="GIF 3" width="272" height="153"/>
+    <img src="assets/GIF/mascot_244096.gif" alt="GIF 4" width="272" height="153"/>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="assets/GIF/tennis_142048.gif" alt="GIF 1" width="220"/></td>
-    <td><img src="assets/GIF/tennis_144096.gif" alt="GIF 2" width="220"/></td>
-    <td><img src="assets/GIF/tennis_124096.gif" alt="GIF 3" width="220"/></td>
-    <td><img src="assets/GIF/tennis_244096.gif" alt="GIF 4" width="220"/></td>
+    <img src="assets/GIF/tennis_142048.gif" alt="GIF 1" width="272" height="153"/>
+    <img src="assets/GIF/tennis_144096.gif" alt="GIF 2" width="272" height="153"/>
+    <img src="assets/GIF/tennis_124096.gif" alt="GIF 3" width="272" height="153"/>
+    <img src="assets/GIF/tennis_244096.gif" alt="GIF 4" width="272" height="153"/>
   </tr>
 </table>
----
+--->
 
 </div>
 
@@ -386,7 +406,7 @@ If you find our paper and/or code helpful, please consider citing:
 ```
 
 ## Acknowledgement
-This repository is maintained by Tianyi Liu, please feel free to contact me via `liut0038ATe.mtu.edu.sg`.
+This repository is maintained by Tianyi Liu, please feel free to contact me via `liut0038ATe.ntu.edu.sg`.
 
 This code is based on [E2FGVI](https://github.com/MCG-NKU/E2FGVI/tree/master), thanks for their awesome work.
 
