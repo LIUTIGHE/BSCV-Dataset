@@ -14,10 +14,10 @@ from core.dist import (
     get_master_ip,
 )
 
-parser = argparse.ArgumentParser(description='BSCVR')
+parser = argparse.ArgumentParser(description='BSCVI')
 parser.add_argument('-c',
                     '--config',
-                    default='configs/train_bscvr_hq.json',
+                    default='configs/train_bscvi_hq.json',
                     type=str)
 parser.add_argument('-p', '--port', default='23455', type=str)
 args = parser.parse_args()
