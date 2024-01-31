@@ -218,7 +218,7 @@ python test.py --width 854 --height 480 --type BSCVR_S --ckpt ./checkpoints/BSCV
 ```
 The results will be saved in the ```result``` foldedr, please indicate the width and height of the input video, and adjust ```--framestride``` to reduce the VRAM occupancy or improve inference efficiency.
 
-<!--
+
 ### Dataset Processing for BSCVR Training
 At current stage, we use the branch ```_144096``` for model training and please follow the steps below to process the dataset
 1. Following the download instruction and save the .zip file for ```train_144096``` branch under the folder ```dataset/youtube-vos/```
@@ -247,7 +247,7 @@ datasets
 ```
 python train.py -c configs/train_bscvr_hq.json
 ```
--->
+
 
 ## Results
 ![Tab](assets/Fig/quant_eval.png)
