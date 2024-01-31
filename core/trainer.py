@@ -16,8 +16,7 @@ from core.lr_scheduler import MultiStepRestartLR, CosineAnnealingRestartLR
 from core.loss import AdversarialLoss
 from core.dataset import TrainDataset
 from model.modules.flow_comp import FlowCompletionLoss
-from model.modules.feat_refine import FeatureRefineLoss
-from model.modules.feat_enhance import EnhanceLoss
+from model.bscvr_hq import Encoder
 
 import torch.autograd as autograd
 
@@ -54,6 +53,8 @@ class Trainer:
         self.adversarial_loss = self.adversarial_loss.to(self.config['device'])
         self.l1_loss = nn.L1Loss()
         self.flow_comp_loss = FlowCompletionLoss().to(self.config['device'])
+        # self.inv_feat_loss = invFeatLoss().to(self.config['device']) # KL divergence
+        self.inv_feat_loss = nn.L1Loss()
 
         # setup models including generator and discriminator
         net = importlib.import_module('model.' + config['model']['net'])
@@ -314,13 +315,14 @@ class Trainer:
             l_t = self.num_local_frames
             b, t, c, h, w = frames.size()
 
-            masked_frames = (frames * (1 - masks).float())
-            uncorrupted_frames = (frames * masks.float())
-            corrupted_frames = (corrupts * masks.float())
+            masked_frames = (frames * (1 - masks).float())  # good contents
+            # corrupted_frames = (corrupts * masks.float())   # bad contents
+            corrupted_frames = corrupts.float()   # bad contents in v3 (whole frame instead of masked region)
             gt_local_frames = (frames[:, :l_t, ...] + 1) / 2
             gt_masked_frames = (frames * (1 - masks).float())
             
-            pred_imgs, pred_flows = self.netG(masked_frames, corrupted_frames, l_t)
+            pred_imgs, pred_flows= self.netG(masked_frames, corrupted_frames, l_t)
+            # _, _, gt_inv_feat, gt_var_feat = self.netG(gt_masked_frames, uncorrupted_frames, l_t)
 
             pred_flows = torch.stack(pred_flows)
             pred_flows = tuple(torch.unbind(pred_flows))
@@ -399,11 +401,11 @@ class Trainer:
                     pbar.set_description((f"flow: {flow_loss.item():.3f}; "
                                           f"d: {dis_loss.item():.3f}; "
                                           f"hole: {hole_loss.item():.3f}; "
-                                          f"valid: {valid_loss.item():.3f}; "))
+                                          f"valid: {valid_loss.item():.3f}"))
                 else:
                     pbar.set_description((f"flow: {flow_loss.item():.3f}; "
                                           f"hole: {hole_loss.item():.3f}; "
-                                          f"valid: {valid_loss.item():.3f}; "))
+                                          f"valid: {valid_loss.item():.3f}"))
 
                 if self.iteration % self.train_args['log_freq'] == 0:
                     if not self.config['model']['no_dis']:
@@ -411,13 +413,13 @@ class Trainer:
                                      f"flow: {flow_loss.item():.4f}; "
                                      f"d: {dis_loss.item():.4f}; "
                                      f"hole: {hole_loss.item():.4f}; "
-                                     f"valid: {valid_loss.item():.4f}; "
+                                     f"valid: {valid_loss.item():.4f}"
                                         )
                     else:
                         logging.info(f"[Iter {self.iteration}] "
                                      f"flow: {flow_loss.item():.4f}; "
                                      f"hole: {hole_loss.item():.4f}; "
-                                     f"valid: {valid_loss.item():.4f}; "
+                                     f"valid: {valid_loss.item():.4f}"
                                      )
 
             # saving models
