@@ -1,5 +1,3 @@
-''' Towards An End-to-End Framework for Video Inpainting
-'''
 
 import torch
 import torch.nn as nn
@@ -7,8 +5,8 @@ import torch.nn.functional as F
 
 from model.modules.flow_comp import SPyNet
 from model.modules.feat_prop import BidirectionalPropagation, SecondOrderDeformableAlignment
-from model.modules.feat_refine import RefineModule # for v1 BSCVR-S
-from model.modules.feat_enhance import FeatEnhancer # for v2 BSCVR-P
+from model.modules.feat_comp_p import FeatEnhancer # for v1p
+from model.modules.feat_comp_s import RefineModule # for v1s
 from model.modules.tfocal_transformer_hq import TemporalFocalTransformerBlock, SoftSplit, SoftComp
 from model.modules.spectral_norm import spectral_norm as _spectral_norm
 
@@ -133,9 +131,9 @@ class deconv(nn.Module):
         return self.conv(x)
 
 
-class InpaintGenerator_S(BaseNetwork):
+class InpaintGenerator(BaseNetwork):
     def __init__(self, init_weights=True):
-        super(InpaintGenerator_S, self).__init__()
+        super(InpaintGenerator, self).__init__()
         channel = 256
         hidden = 512
 
@@ -153,7 +151,13 @@ class InpaintGenerator_S(BaseNetwork):
             nn.Conv2d(64, 3, kernel_size=3, stride=1, padding=1))
 
         # feature enhance module
-        self.feat_refine_module = RefineModule(channel)
+        self.feat_refine_module = RefineModule(channel)                                               # for v1s
+        # self.feat_enhance_module = FeatEnhancer(img_size=64, patch_size=4, in_chans=256,
+        #          embed_dim=256, depths=[3], num_heads=[4],
+        #          window_size=5, mlp_ratio=4., qkv_bias=True, qk_scale=None,
+        #          drop_rate=0., attn_drop_rate=0., drop_path_rate=0.1,
+        #          norm_layer=nn.LayerNorm, ape=False, patch_norm=True,
+        #          use_checkpoint=False, upscale=2, img_range=1., upsampler='', resi_connection='1conv')  # for v1p
         
         # feature propagation module
         self.feat_prop_module = BidirectionalPropagation(channel // 2)
@@ -240,13 +244,16 @@ class InpaintGenerator_S(BaseNetwork):
     def forward(self, masked_frames, corr_content, num_local_frames):
         l_t = num_local_frames
         b, t, ori_c, ori_h, ori_w = masked_frames.size()
+        # print("input masked_frames.size(): ", masked_frames.size())
 
         # normalization before feeding into the flow completion module
         masked_local_frames = (masked_frames[:, :l_t, ...] + 1) / 2
+        # print("masked_local_frames.size(): ", masked_local_frames.size())
         corr_local_content = (corr_content[:, :l_t, ...] + 1) / 2
         pred_flows = self.forward_bidirect_flow(masked_local_frames)
 
         # extracting features: local features + local corrupted content features
+        # print(masked_frames.type())
         enc_feat = self.encoder(masked_frames.view(b * t, ori_c, ori_h, ori_w))
         enc_corr_feat = self.encoder(corr_content.view(b * t, ori_c, ori_h, ori_w))
         _, c, h, w = enc_feat.size()
@@ -255,162 +262,13 @@ class InpaintGenerator_S(BaseNetwork):
         local_feat = enc_feat.view(b, t, c, h, w)[:, :l_t, ...]
         local_corr_feat = enc_corr_feat.view(b, t, c, h, w)[:, :l_t, ...]
         ref_feat = enc_feat.view(b, t, c, h, w)[:, l_t:, ...]
-
-        # feature completion
-        local_feat = self.feat_refine_module(local_feat, local_corr_feat)
-        
-        # pred_feat = local_feat
-
-        # feature propagation
-        local_feat = self.feat_prop_module(local_feat, pred_flows[0],
-                                           pred_flows[1])
-        enc_feat = torch.cat((local_feat, ref_feat), dim=1)
-
-        # content hallucination through stacking multiple temporal focal transformer blocks
-        trans_feat = self.ss(enc_feat.view(-1, c, h, w), b, fold_output_size)
-        trans_feat = self.transformer([trans_feat, fold_output_size])
-        trans_feat = self.sc(trans_feat[0], t, fold_output_size)
-        trans_feat = trans_feat.view(b, t, -1, h, w)
-        enc_feat = enc_feat + trans_feat
-
-        # decode frames from features
-        output = self.decoder(enc_feat.view(b * t, c, h, w))
-        output = torch.tanh(output)
-        return output, pred_flows
-
-
-class InpaintGenerator_P(BaseNetwork):
-    def __init__(self, init_weights=True):
-        super(InpaintGenerator_P, self).__init__()
-        channel = 256
-        hidden = 512
-
-        # encoder
-        self.encoder = Encoder()
-
-        # decoder
-        self.decoder = nn.Sequential(
-            deconv(channel // 2, 128, kernel_size=3, padding=1),
-            nn.LeakyReLU(0.2, inplace=True),
-            nn.Conv2d(128, 64, kernel_size=3, stride=1, padding=1),
-            nn.LeakyReLU(0.2, inplace=True),
-            deconv(64, 64, kernel_size=3, padding=1),
-            nn.LeakyReLU(0.2, inplace=True),
-            nn.Conv2d(64, 3, kernel_size=3, stride=1, padding=1))
-
-        # feature enhance module
-        self.feat_enhance_module = FeatEnhancer(img_size=64, patch_size=4, in_chans=256,
-                 embed_dim=256, depths=[3], num_heads=[4],
-                 window_size=5, mlp_ratio=4., qkv_bias=True, qk_scale=None,
-                 drop_rate=0., attn_drop_rate=0., drop_path_rate=0.1,
-                 norm_layer=nn.LayerNorm, ape=False, patch_norm=True,
-                 use_checkpoint=False, upscale=2, img_range=1., upsampler='', resi_connection='1conv')
-        
-        # feature propagation module
-        self.feat_prop_module = BidirectionalPropagation(channel // 2)
-
-        # soft split and soft composition
-        kernel_size = (7, 7)
-        padding = (3, 3)
-        stride = (3, 3)
-        output_size = (60, 108)
-        t2t_params = {
-            'kernel_size': kernel_size,
-            'stride': stride,
-            'padding': padding
-        }
-        self.ss = SoftSplit(channel // 2,
-                            hidden,
-                            kernel_size,
-                            stride,
-                            padding,
-                            t2t_param=t2t_params)
-        self.sc = SoftComp(channel // 2, hidden, kernel_size, stride, padding)
-
-        n_vecs = 1
-        for i, d in enumerate(kernel_size):
-            n_vecs *= int((output_size[i] + 2 * padding[i] -
-                           (d - 1) - 1) / stride[i] + 1)
-
-        blocks = []
-        depths = 8
-        num_heads = [4] * depths
-        window_size = [(5, 9)] * depths
-        focal_windows = [(5, 9)] * depths
-        focal_levels = [2] * depths
-        pool_method = "fc"
-
-        for i in range(depths):
-            blocks.append(
-                TemporalFocalTransformerBlock(dim=hidden,
-                                              num_heads=num_heads[i],
-                                              window_size=window_size[i],
-                                              focal_level=focal_levels[i],
-                                              focal_window=focal_windows[i],
-                                              n_vecs=n_vecs,
-                                              t2t_params=t2t_params,
-                                              pool_method=pool_method))
-        self.transformer = nn.Sequential(*blocks)
-
-        if init_weights:
-            self.init_weights()
-            # Need to initial the weights of MSDeformAttn specifically
-            for m in self.modules():
-                if isinstance(m, SecondOrderDeformableAlignment):
-                    m.init_offset()
-
-        # flow completion network
-        self.update_spynet = SPyNet()
-
-    def forward_bidirect_flow(self, masked_local_frames):
-        b, l_t, c, h, w = masked_local_frames.size()
-
-        # compute forward and backward flows of masked frames
-        masked_local_frames = F.interpolate(masked_local_frames.view(
-            -1, c, h, w),
-                                            scale_factor=1 / 4,
-                                            mode='bilinear',
-                                            align_corners=True,
-                                            recompute_scale_factor=True)
-        masked_local_frames = masked_local_frames.view(b, l_t, c, h // 4,
-                                                       w // 4)
-        mlf_1 = masked_local_frames[:, :-1, :, :, :].reshape(
-            -1, c, h // 4, w // 4)
-        mlf_2 = masked_local_frames[:, 1:, :, :, :].reshape(
-            -1, c, h // 4, w // 4)
-        pred_flows_forward = self.update_spynet(mlf_1, mlf_2)
-        pred_flows_backward = self.update_spynet(mlf_2, mlf_1)
-
-        pred_flows_forward = pred_flows_forward.view(b, l_t - 1, 2, h // 4,
-                                                     w // 4)
-        pred_flows_backward = pred_flows_backward.view(b, l_t - 1, 2, h // 4,
-                                                       w // 4)
-
-        return pred_flows_forward, pred_flows_backward
-
-    def forward(self, masked_frames, corr_content, num_local_frames):
-        l_t = num_local_frames
-        b, t, ori_c, ori_h, ori_w = masked_frames.size()
-
-        # normalization before feeding into the flow completion module
-        masked_local_frames = (masked_frames[:, :l_t, ...] + 1) / 2
-        corr_local_content = (corr_content[:, :l_t, ...] + 1) / 2
-        pred_flows = self.forward_bidirect_flow(masked_local_frames)
-
-        # extracting features: local features + local corrupted content features
-        enc_feat = self.encoder(masked_frames.view(b * t, ori_c, ori_h, ori_w))
-        enc_corr_feat = self.encoder(corr_content.view(b * t, ori_c, ori_h, ori_w))
-        _, c, h, w = enc_feat.size()
-        fold_output_size = (h, w)
-        
-        local_feat = enc_feat.view(b, t, c, h, w)[:, :l_t, ...]
-        local_corr_feat = enc_corr_feat.view(b, t, c, h, w)[:, :l_t, ...]
-        ref_feat = enc_feat.view(b, t, c, h, w)[:, l_t:, ...]
+        # print("local_feat.size(): ", local_feat.size())
+        # print("local_corr_feat.size(): ", local_corr_feat.size())
+        # print("ref_feat.size(): ", ref_feat.size())
 
         # feature enhancement
-        local_feat = self.feat_enhance_module(local_feat, local_corr_feat)
-        
-        # pred_feat = local_feat
+        local_feat = self.feat_refine_module(local_feat, local_corr_feat)       # for v1s
+        # local_feat = self.feat_enhance_module(local_feat, local_corr_feat)    # for v1p
 
         # feature propagation
         local_feat = self.feat_prop_module(local_feat, pred_flows[0],
