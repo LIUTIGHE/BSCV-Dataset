@@ -1,6 +1,6 @@
 {
     "seed": 2021,
-    "save_dir": "release_model/",
+    "save_dir": "release_model_bscvr/",
     "train_data_loader": {
         "name": "youtube-vos",
         "data_root": "datasets",
@@ -13,7 +13,6 @@
         "hole_weight": 1,
         "valid_weight": 1,
         "flow_weight": 1,
-        "inv_feat_weight": 1,
         "adversarial_weight": 0.01,
         "GAN_LOSS": "hinge"
     },
