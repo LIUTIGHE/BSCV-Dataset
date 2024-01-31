@@ -315,14 +315,12 @@ class Trainer:
             l_t = self.num_local_frames
             b, t, c, h, w = frames.size()
 
-            masked_frames = (frames * (1 - masks).float())  # good contents
-            # corrupted_frames = (corrupts * masks.float())   # bad contents
-            corrupted_frames = corrupts.float()   # bad contents in v3 (whole frame instead of masked region)
+            masked_frames = (frames * (1 - masks).float())  
+            corrupted_frames = (corrupts * masks.float())
             gt_local_frames = (frames[:, :l_t, ...] + 1) / 2
             gt_masked_frames = (frames * (1 - masks).float())
             
             pred_imgs, pred_flows= self.netG(masked_frames, corrupted_frames, l_t)
-            # _, _, gt_inv_feat, gt_var_feat = self.netG(gt_masked_frames, uncorrupted_frames, l_t)
 
             pred_flows = torch.stack(pred_flows)
             pred_flows = tuple(torch.unbind(pred_flows))
