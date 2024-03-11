@@ -44,7 +44,7 @@
 **2023.08.24:** **1).** New YouTube-VOS&DAVIS branches is available with tougher parameter adjustments and corruption ratios. **2).** New subset with higher resolutions in 1080P and 4K is included. **3).** H.265 protocol is supported.
 
 ## TODO
-- [ ] Training scripts formatting, uploading, and revision.
+- [ ] Training scripts formatting, ~uploading~, and revision.
 
 ## Table of Contents
 
