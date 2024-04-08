@@ -248,12 +248,10 @@ class InpaintGenerator(BaseNetwork):
 
         # normalization before feeding into the flow completion module
         masked_local_frames = (masked_frames[:, :l_t, ...] + 1) / 2
-        # print("masked_local_frames.size(): ", masked_local_frames.size())
         corr_local_content = (corr_content[:, :l_t, ...] + 1) / 2
         pred_flows = self.forward_bidirect_flow(masked_local_frames)
 
         # extracting features: local features + local corrupted content features
-        # print(masked_frames.type())
         enc_feat = self.encoder(masked_frames.view(b * t, ori_c, ori_h, ori_w))
         enc_corr_feat = self.encoder(corr_content.view(b * t, ori_c, ori_h, ori_w))
         _, c, h, w = enc_feat.size()
@@ -262,9 +260,6 @@ class InpaintGenerator(BaseNetwork):
         local_feat = enc_feat.view(b, t, c, h, w)[:, :l_t, ...]
         local_corr_feat = enc_corr_feat.view(b, t, c, h, w)[:, :l_t, ...]
         ref_feat = enc_feat.view(b, t, c, h, w)[:, l_t:, ...]
-        # print("local_feat.size(): ", local_feat.size())
-        # print("local_corr_feat.size(): ", local_corr_feat.size())
-        # print("ref_feat.size(): ", ref_feat.size())
 
         # feature enhancement
         local_feat = self.feat_refine_module(local_feat, local_corr_feat)       # for v1s
