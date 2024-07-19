@@ -23,6 +23,9 @@
     <a href='https://arxiv.org/abs/2309.13890'>
       <img src='https://img.shields.io/badge/Paper-arXiv-green?style=plastic&logo=arXiv&logoColor=green' alt='Paper arXiv'>
     </a>
+    <a href='https://proceedings.neurips.cc/paper_files/paper/2023/hash/d7928f6dfb0c30d6a6917587dacbe4bc-Abstract-Datasets_and_Benchmarks.html'>
+      <img src="https://img.shields.io/badge/NeurIPS%20Proc/Supp-blue">
+    </a>
 </p>
 
 <p align="center"> (This page is under continuous update and construction..) </p>
