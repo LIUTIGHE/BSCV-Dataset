@@ -36,6 +36,7 @@
 
 
 ## Update
+
 **2023.12.18:** Our code and model are publicly available in the [method](https://github.com/LIUTIGHE/BSCV-Dataset/edit/main/README.md#824) part.
 
 **2023.09.22:** 🎉 We are delight to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchamrk Track, ~~we will upload the preprint version soon~~ the preprint version is available at [arXiv](https://arxiv.org/abs/2309.13890)!
@@ -48,6 +49,7 @@
 
 ## TODO
 - [ ] Training scripts formatting, ~uploading~, and revision.
+- [ ] Extended dataset, improved recovery method, and journal paper release.
 
 ## Table of Contents
 
@@ -325,76 +327,6 @@ More visualized performance comparisons of recovery results in video form are il
 </p>
 -->
 ---
-
-For additional comparison with non-end-to-end methods, our preliminary evaluation result is
-| Method | PSNR $\uparrow$ | SSIM $\uparrow$ | LPIPS $\downarrow$ | VFID $\downarrow$ | Runtime |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| FGT | **31.5407** | 0.8967 | 0.0486 | 0.3368 | ~1.97 |
-| ECFVI | 20.8676 | 0.7692 | 0.0705 | 0.3019 | ~2.24 |
-| **BSCVR-S (Ours)** | 28.8288 | ***0.9138*** | ***0.0399*** | **0.1704** | **0.172** |
-| **BSCVR-P (Ours)** | ***29.0186*** | **0.9166** | **0.0391** | ***0.1730*** | ***0.178*** |
-
-Performance comparisons of recovery results in video form are illustrated below, from left to right, top to down is Corrupted Video, Mask Input, Ground Truth, FGT, ECFVI, and Our method in sequence.
-
-<p align="left">
-  <img src="assets/GIF/mascot_input.gif" alt="Image 1" width="272" height="153"/>
-  <img src="assets/GIF/mascot_mask.gif" alt="Image 2" width="272" height="153"/>
-  <img src="assets/GIF/mascot_gt.gif" alt="Image 6" width="272" height="153"/>
-  <img src="assets/GIF/mascotpretrain_FGT.gif" alt="Image 3" width="272" height="153"/>
-  <img src="assets/GIF/mascotpretrain_ECFVI.gif" alt="Image 4" width="272" height="153"/>
-  <img src="assets/GIF/mascotbsctrain_BSCVI_S.gif" alt="Image 5" width="272" height="153"/>
-</p>
-
-<!--
-<p align="center">
-  <img src="assets/GIF/walking_input.gif" alt="Image 1" width="272" height="153"/>
-  <img src="assets/GIF/walking_mask.gif" alt="Image 2" width="272" height="153"/>
-  <img src="assets/GIF/walking_gt.gif" alt="Image 6" width="272" height="153"/>
-  <img src="assets/GIF/walkingpretrain_FGT.gif" alt="Image 3" width="272" height="153"/>
-  <img src="assets/GIF/walkingpretrain_ECFVI.gif" alt="Image 4" width="272" height="153"/>
-  <img src="assets/GIF/walkingbsctrain_BSCVI_S.gif" alt="Image 5" width="272" height="153"/>
-</p>
-
-<p align="center">
-  <img src="assets/GIF/tennis_input.gif" alt="Image 1" width="272" height="153"/>
-  <img src="assets/GIF/tennis_mask.gif" alt="Image 2" width="272" height="153"/>
-  <img src="assets/GIF/tennis_gt.gif" alt="Image 6" width="272" height="153"/>
-  <img src="assets/GIF/tennispretrain_FGT.gif" alt="Image 3" width="272" height="153"/>
-  <img src="assets/GIF/tennispretrain_ECFVI.gif" alt="Image 4" width="272" height="153"/>
-  <img src="assets/GIF/tennisbsctrain_BSCVI_S.gif" alt="Image 5" width="272" height="153"/>
-</p>
--->
-
-These video form presentations well highlight the advantages of our model in recovering long-term video sequences and large-area error patterns caused by bitstream corruptions.
-
-<!--
-<p align="center">
-  <img src="assets/GIF/mascot_input.gif" alt="Image 1" width="160" height="88"/>
-  <img src="assets/GIF/mascot_mask.gif" alt="Image 2" width="160" height="88"/>
-  <img src="assets/GIF/mascotpretrain_FGT.gif" alt="Image 3" width="160" height="88"/>
-  <img src="assets/GIF/mascotpretrain_ECFVI.gif" alt="Image 4" width="160" height="88"/>
-  <img src="assets/GIF/mascotbsctrain_BSCVI_S.gif" alt="Image 5" width="160" height="88"/>
-  <img src="assets/GIF/mascot_gt.gif" alt="Image 6" width="160" height="88"/>
-</p>
-
-<p align="center">
-  <img src="assets/GIF/walking_input.gif" alt="Image 1" width="160" height="88"/>
-  <img src="assets/GIF/walking_mask.gif" alt="Image 2" width="160" height="88"/>
-  <img src="assets/GIF/walkingpretrain_FGT.gif" alt="Image 3" width="160" height="88"/>
-  <img src="assets/GIF/walkingpretrain_ECFVI.gif" alt="Image 4" width="160" height="88"/>
-  <img src="assets/GIF/walkingbsctrain_BSCVI_S.gif" alt="Image 5" width="160" height="88"/>
-  <img src="assets/GIF/walking_gt.gif" alt="Image 6" width="160" height="88"/>
-</p>
-
-<p align="center">
-  <img src="assets/GIF/tennis_input.gif" alt="Image 1" width="160" height="88"/>
-  <img src="assets/GIF/tennis_mask.gif" alt="Image 2" width="160" height="88"/>
-  <img src="assets/GIF/tennispretrain_FGT.gif" alt="Image 3" width="160" height="88"/>
-  <img src="assets/GIF/tennispretrain_ECFVI.gif" alt="Image 4" width="160" height="88"/>
-  <img src="assets/GIF/tennisbsctrain_BSCVI_S.gif" alt="Image 5" width="160" height="88"/>
-  <img src="assets/GIF/tennis_gt.gif" alt="Image 6" width="160" height="88"/>
-</p>
--->
 
 
 ## Citation
