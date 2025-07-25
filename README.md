@@ -37,15 +37,15 @@
 
 ## Update
 
-**2025.07.06:** 🎉 Our extended [blind recovery method](https://github.com/LIUTIGHE/B2SCVR) has been accepted by ACM MM 2025, codes and preprint version will be released soon.
+**2025.07.06:** 🎉 Our extended [blind recovery method](https://github.com/LIUTIGHE/B2SCVR) has been accepted by **ACM MM 2025**, codes and preprint version will be released soon.
 
 **2023.12.18:** Our code and model are publicly available in the [method](https://github.com/LIUTIGHE/BSCV-Dataset/edit/main/README.md#824) part.
 
-**2023.09.22:** 🎉 We are delight to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchamrk Track, ~~we will upload the preprint version soon~~ the preprint version is available at [arXiv](https://arxiv.org/abs/2309.13890)!
+**2023.09.22:** 🎉 We are delighted to announce that our paper has been accepted by **NeurIPS 2023** Dataset and Benchmark Track, ~~we will upload the preprint version soon~~ the preprint version is available at [arXiv](https://arxiv.org/abs/2309.13890)!
 
-**2023.08.30:** We additionally presented some performance comparisons in video form, which highlights the advantage of our method in recovering long-term and large area corruptions.
+**2023.08.30:** We additionally presented some performance comparisons in video form, which highlight the advantage of our method in recovering long-term and large area corruptions.
 
-**2023.08.29:** We shared our proposed video recovery method and evaluation results in the [method](https://github.com/LIUTIGHE/BSCV-Dataset/edit/main/README.md#824) part. The training and testing code will release soon.
+**2023.08.29:** We shared our proposed video recovery method and evaluation results in the [method](https://github.com/LIUTIGHE/BSCV-Dataset/edit/main/README.md#824) part. The training and testing code will be released soon.
 
 **2023.08.24:** **1).** New YouTube-VOS&DAVIS branches is available with tougher parameter adjustments and corruption ratios. **2).** New subset with higher resolutions in 1080P and 4K is included. **3).** H.265 protocol is supported.
 
