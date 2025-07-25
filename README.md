@@ -37,7 +37,7 @@
 
 ## Update
 
-**2025.07.06:** 🎉 Our extended [blind recovery method](https://github.com/LIUTIGHE/B2SCVR) has been accepted by ACM MM 2025, codes will be released soon.
+**2025.07.06:** 🎉 Our extended [blind recovery method](https://github.com/LIUTIGHE/B2SCVR) has been accepted by ACM MM 2025, codes and preprint version will be released soon.
 
 **2023.12.18:** Our code and model are publicly available in the [method](https://github.com/LIUTIGHE/BSCV-Dataset/edit/main/README.md#824) part.
 
